@@ -1,0 +1,2 @@
+export const SET_EDITORS = 'SET_EDITORS';
+export const SET_EDITORS_FAILED = 'SET_EDITORS_FAILED';
