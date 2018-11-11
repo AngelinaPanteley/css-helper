@@ -196,13 +196,7 @@ module.exports = {
             use: ExtractTextPlugin.extract({
               fallback: 'style-loader',
               use: [
-                {
-                  loader: 'css-loader',
-                  query: {
-                    modules: true,
-                    localIdentName: '[name]_[local]_[hash:base64:5]'
-                  },
-                },
+                'css-loader',
                 {
                   loader: require.resolve('postcss-loader'),
                   options: {

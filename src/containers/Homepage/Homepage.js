@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styles from './Homepage.scss';
 
+import Carousel from '../../components/UI/Carousel/Carousel';
+
 class Homepage extends Component {
   render() {
     return (
-      <p>Homepage{this.props.editorNames}</p>
+      <Carousel />
     )
   }
 }

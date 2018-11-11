@@ -1,0 +1,27 @@
+.carousel .thumbs-wrapper {
+  display: none;
+}
+
+.carousel .slide {
+  height: calc(100vh - 79px);
+  position: relative;
+  z-index: 1;
+}
+
+.carousel .slide > div {
+  height: 100%;
+}
+
+.carousel .slide.selected {
+  z-index: 5;
+}
+
+.carousel .slide img {
+  width: auto;
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
