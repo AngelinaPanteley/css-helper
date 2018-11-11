@@ -6,6 +6,13 @@ body {
   font-family: $font;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
 }
 
 code {
@@ -14,4 +21,13 @@ code {
 
 a {
   font-family: $font;
+  color: $color-white;
+  transition: $transition;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $color-light-pink;
+    transition: $transition;
+  }
 }

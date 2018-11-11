@@ -1,0 +1,58 @@
+@import '../../../variables';
+
+.Dropdown {
+  position: absolute;
+  width: auto;
+  max-width: 70%;
+  height: calc(100vh - #{$header-height});
+  top: $header-height;
+  z-index: map-get($z-index, popup);
+  background-color: $color-gray;
+  box-sizing: border-box;
+  transition: transform 0.3s ease-out;
+
+  &.Open {
+    transform: translateX(0);
+  }
+
+  &.Close {
+    transform: translateX(-100%);
+
+    &.Right {
+      transform: translateX(100%);
+    }
+  }
+
+  &.Left {
+    left: 0;
+  }
+
+  &.Right {
+    right: 0;
+  }
+}
+
+.List {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.List_Item {
+  margin: 20px 0;
+
+  a {
+    padding: 10px 43px;
+    background: $color-dark-pink;
+    width: 100%;
+    display: inline-block;
+    text-decoration: none;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: white;
+      background: $color-light-pink;
+    }
+  }
+}

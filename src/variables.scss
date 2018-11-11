@@ -7,7 +7,19 @@ $color-light-gray: #626470;
 $color-dark-pink: #822a4e;
 $color-pink: #a81e45;
 $color-light-pink: #c21d54;
-$color-white: #626470;
+$color-white: #ffffff;
+
+$transition: all .2s ease-in-out;
+
+$header-height: 79px;
+
+$mobile-width: 620px;
+$tablet-width: 1024px;
+
+$z-index: (
+  backdrop: 10,
+  popup: 20
+);
 
 @mixin xy-center {
   position: absolute;
@@ -34,4 +46,22 @@ $color-white: #626470;
   justify-content: $just;
   flex-wrap: $wrap;
   align-items: $align;
+}
+
+@mixin mobile {
+  @media (max-width: #{$mobile-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
 }

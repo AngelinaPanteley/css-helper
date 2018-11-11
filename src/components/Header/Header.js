@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './Header.scss';
+import styles from './Header.scss'
 
 import Logo from '../Logo/Logo';
 import Menu from '../../containers/Menu/Menu';

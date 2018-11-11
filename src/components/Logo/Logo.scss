@@ -1,4 +1,9 @@
+@import '../../variables';
+
 .Logo {
+  @include x-center;
+
+  top: 0;
 
   &_image {
     width: 100px;

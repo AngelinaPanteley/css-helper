@@ -1,0 +1,31 @@
+@import '../../variables';
+
+.Account {
+  @include mobile {
+    display: none;
+  }
+
+  &_Mobile {
+    display: none;
+
+    @include mobile {
+      display: block;
+    }
+  }
+
+  &_Link {
+    text-decoration: none;
+
+    &_Wrapper {
+      margin: 0 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}
