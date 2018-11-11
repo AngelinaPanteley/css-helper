@@ -1,0 +1,8 @@
+@import '../../variables';
+
+.Header {
+  @include flex-wrapper();
+  
+  padding: 0 40px;
+  background: $color-gray;
+}

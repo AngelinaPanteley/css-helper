@@ -2,15 +2,16 @@ import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../../shared/utility';
 
 const initialState = {
-  editors: null,
+  names: null,
+  settings: null,
   error: null,
-  loading: false
 };
 
 const setEditors = (state, editors) => {
+  const names = Object.keys(editors);
   return updateObject(state, {
-    editors,
-    loading: false,
+    names,
+    settings: editors,
     error: null,
   });
 }
@@ -18,8 +19,8 @@ const setEditors = (state, editors) => {
 const setEditorsFailed = (state, error) => {
   return updateObject(state, {
     error,
-    editors: null,
-    loading: false,
+    names: null,
+    settings: null,
   })
 }
 

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from './store/actions/index';
-
+import { Switch, Redirect, Route } from 'react-router-dom';
 import Spinner from './components/UI/Spinner/Spinner';
+import Homepage from './containers/Homepage/Homepage';
+import Layout from './hoc/Layout/Layout';
 
 class App extends Component {
   componentDidMount() {
@@ -10,16 +12,22 @@ class App extends Component {
   }
 
   render() {
-    const editors = this.props.editors;
-    const routes = 'App';
+    const editorNames = this.props.editorNames;
+    let routes = (
+      <Switch>
+        {/* <Route path="/auth" component={asyncAuth} /> */}
+        <Route path="/" exact component={Homepage} />
+        <Redirect to="/" />
+      </Switch>
+    );
+
     return (
       <div className="App">
         {
-          //editors
-          //? routes
-          //: <Spinner />
+          editorNames
+            ? <Layout>{routes}</Layout>
+            : <Spinner />
         }
-        <Spinner />
       </div>
     );
   }
@@ -27,7 +35,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    editors: state.editors.editors,
+    editorNames: state.editors.names,
   }
 }
 
