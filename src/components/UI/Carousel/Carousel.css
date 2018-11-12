@@ -25,3 +25,27 @@
   top: 50%;
   transform: translate(-50%,-50%);
 }
+
+.carousel .slide .legend {
+  background: transparent;
+}
+
+.carousel .control-dots {
+  padding: 0;
+}
+
+.carousel .control-dots .dot {
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.carousel .slider-wrapper.axis-horizontal .slider .slide:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(56,58,71,0.3);
+  z-index: 1;
+}

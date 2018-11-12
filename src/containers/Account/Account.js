@@ -30,7 +30,7 @@ class Account extends Component {
     const links = [
       {
         title: 'Log In',
-        route: '/auth',
+        route: '/login',
       },
       {
         title: 'Create Account',
@@ -44,7 +44,7 @@ class Account extends Component {
           {
             links.map((link) => {
               return (
-                <span className={styles.Account_Link_Wrapper}>
+                <span className={styles.Account_Link_Wrapper} key={link.route}>
                   <Link to={link.route} className={styles.Account_Link}>
                     {link.title}
                   </Link>
