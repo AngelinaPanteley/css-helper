@@ -1,0 +1,78 @@
+@import '../../variables';
+
+.Form {
+  width: 50%;
+  padding-top: 10%;
+  margin: auto;
+
+  &_Item {
+    display: flex;
+    flex-direction: column-reverse;
+
+    label {
+      color: $color-white;
+      font-size: 22px;
+      margin-bottom: 10px;
+      position: relative;
+
+      &:after {
+        content: "";
+        background: $color-light-pink;
+        transition: all .5s ease-in-out;
+        position: absolute;
+        bottom: -53px;
+        left: 0;
+        width: 0;
+        height: 3px;
+      }
+    }
+
+    input:focus + label {
+      &:after {
+        width: 100%;
+        transition: all .5s ease-in-out;
+      }
+    }
+
+    input {
+      height: 40px;
+      margin-bottom: 30px;
+      font-size: 20px;
+      padding: 0 10px;
+      color: $color-gray;
+      border: none;
+      outline: none;
+    }
+  }
+
+  &_Buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+      font-size: 20px;
+    }
+
+    input[type='submit'] {
+      height: auto;
+      border: 0;
+      outline: none;
+      padding: 10px 80px;
+      line-height: 20px;
+      background: $color-light-pink;
+      color: $color-white;
+      transition: $transition;
+      font-size: 20px;
+      cursor: pointer;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background: $color-pink;
+        transition: $transition;
+      }
+    }
+  }
+}

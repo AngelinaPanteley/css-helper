@@ -49,3 +49,7 @@
   background: rgba(56,58,71,0.3);
   z-index: 1;
 }
+
+.carousel .carousel-status {
+  display: none;
+}
