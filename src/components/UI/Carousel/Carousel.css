@@ -53,3 +53,30 @@
 .carousel .carousel-status {
   display: none;
 }
+
+.carousel.carousel-slider .control-arrow:before {
+  font-family: "css-helper";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: .2em;
+  border: 0;
+}
+
+.carousel .control-next.control-arrow:before {
+  content: '\e802';
+  border: 0;
+}
+
+.carousel .control-prev.control-arrow:before {
+  content: '\e801';
+  border: 0;
+}

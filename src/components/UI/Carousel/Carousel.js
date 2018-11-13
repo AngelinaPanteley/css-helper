@@ -15,7 +15,7 @@ export default (props) => {
   });
 
   return (
-    <Carousel autoPlay>
+    <Carousel autoPlay infiniteLoop>
       {slides}
     </Carousel>
   );

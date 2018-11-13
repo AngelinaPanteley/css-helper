@@ -27,11 +27,12 @@ class App extends Component {
 
     return (
       <div className={styles.App}>
-        {
+        {/* {
           editorNames
             ? <Layout>{routes}</Layout>
             : <Spinner />
-        }
+        } */}
+        <Spinner />
       </div>
     );
   }
