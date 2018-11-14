@@ -3,14 +3,15 @@ import axios from '../../axios-orders';
 
 export const setEditors = (editors) => {
   return {
-    type: actionTypes.SET_EDITORS,
+    type: actionTypes.EDITORS_INIT,
     editors
   }
 }
 
-export const fetchEditorsFailed = () => {
+export const fetchEditorsFailed = (error) => {
   return {
-    type: actionTypes.SET_EDITORS_FAILED
+    type: actionTypes.EDITORS_INIT_FAILED,
+    error,
   }
 }
 
@@ -21,7 +22,7 @@ export const initEditors = () => {
         dispatch(setEditors(response.data));
       })
       .catch(error => {
-        dispatch(fetchEditorsFailed());
+        dispatch(fetchEditorsFailed(error));
       });
   }
 }

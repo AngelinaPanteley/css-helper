@@ -4,5 +4,6 @@ export {
 
 export {
   auth,
-  logout
+  logout,
+  authInit
 } from './auth';

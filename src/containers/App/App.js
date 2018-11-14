@@ -11,6 +11,7 @@ import Auth from '../Auth/Auth';
 class App extends Component {
   componentDidMount() {
     this.props.initEditors();
+    this.props.initUser();
   }
 
   render() {
@@ -55,6 +56,7 @@ const mapStateToProps = state => {
 const mapDispatchTopProps = dispatch => {
   return {
     initEditors: () => dispatch(actions.initEditors()),
+    initUser: () => dispatch(actions.authInit()),
   }
 }
 

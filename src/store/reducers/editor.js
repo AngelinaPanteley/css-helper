@@ -7,18 +7,18 @@ const initialState = {
   error: null,
 };
 
-const setEditors = (state, editors) => {
-  const names = Object.keys(editors);
+const editorsInit = (state, action) => {
+  const names = Object.keys(action.editors);
   return updateObject(state, {
     names,
-    settings: editors,
+    settings: action.editors,
     error: null,
   });
 }
 
-const setEditorsFailed = (state, error) => {
+const editorsInitFailed = (state, action) => {
   return updateObject(state, {
-    error,
+    error: action.error,
     names: null,
     settings: null,
   })
@@ -26,8 +26,8 @@ const setEditorsFailed = (state, error) => {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.SET_EDITORS: return setEditors(state, action.editors);
-    case actionTypes.SET_EDITORS_FAILED: return setEditorsFailed(state, action.error);
+    case actionTypes.EDITORS_INIT: return editorsInit(state, action);
+    case actionTypes.EDITORS_INIT_FAILED: return editorsInitFailed(state, action);
     default: return state;
   }
 }

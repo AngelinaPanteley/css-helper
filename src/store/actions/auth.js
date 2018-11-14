@@ -12,7 +12,6 @@ export const authSuccess = (authData) => {
     type: actionTypes.AUTH_SUCCESS,
     idToken: authData.idToken,
     userId: authData.localId,
-    expiresIn: authData.expiresIn,
   };
 };
 
@@ -23,17 +22,44 @@ export const authFail = (error) => {
   };
 };
 
+export const authInit = () => {
+  return dispatch => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const expirationDate = new Date(localStorage.getItem('expirationDate'));
+      if (expirationDate.getTime() > new Date().getTime()) {
+        dispatch(authSuccess({
+          idToken: token,
+          localId: localStorage.getItem('userId'),
+        }));
+        dispatch(checkAuthTimeout(expirationDate.getTime() / 1000 - new Date().getTime() / 1000));
+      } else {
+        console.log('logout1');
+        dispatch(logout());
+      }
+    } else {
+      console.log('logout2');
+      dispatch(logout());
+    }
+  };
+};
+
 export const logout = () => {
+  localStorage.removeItem('token');
+  localStorage.removeItem('userId');
+  localStorage.removeItem('expirationDate');
   return {
     type: actionTypes.AUTH_LOGOUT,
   };
 };
 
-export const checkAuthTimaout = (expiresIn) => {
+export const checkAuthTimeout = (expiresIn) => {
+  console.log(Math.round(expiresIn));
   return dispatch => {
     setTimeout(() => {
+      console.log('logout3');
       dispatch(logout());
-    }, expiresIn * 1000)
+    }, Math.round(expiresIn) * 1000);
   };
 };
 
@@ -51,8 +77,12 @@ export const auth = (email, password, isAuth) => {
     }
     axios.post(url, authData)
       .then(response => {
+        const expirationDate = new Date(new Date().getTime() + response.data.expiresIn * 1000);
+        localStorage.setItem('token', response.data.idToken);
+        localStorage.setItem('userId', response.data.localId);
+        localStorage.setItem('expirationDate', expirationDate);
         dispatch(authSuccess(response.data));
-        dispatch(checkAuthTimaout(response.data.expiresIn))
+        dispatch(checkAuthTimeout(response.data.expiresIn))
       })
       .catch(error => {
         dispatch(authFail(error));
