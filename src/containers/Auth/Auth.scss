@@ -8,6 +8,7 @@
   &_Item {
     display: flex;
     flex-direction: column-reverse;
+    position: relative;
 
     label {
       color: $color-white;
@@ -36,7 +37,7 @@
 
     input {
       height: 40px;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
       font-size: 20px;
       padding: 0 10px;
       color: $color-gray;
@@ -74,5 +75,11 @@
         transition: $transition;
       }
     }
+  }
+
+  &_Error {
+    position: absolute;
+    bottom: 15px;
+    color: $color-error;
   }
 }

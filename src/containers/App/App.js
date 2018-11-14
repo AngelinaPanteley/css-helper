@@ -6,7 +6,6 @@ import styles from './App.scss';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import Homepage from '../Homepage/Homepage';
 import Layout from '../../hoc/Layout/Layout';
-import Login from '../Login/Login';
 import Auth from '../Auth/Auth';
 
 class App extends Component {
@@ -18,8 +17,8 @@ class App extends Component {
     const editorNames = this.props.editorNames;
     let routes = (
       <Switch>
-        <Route path="/login" component={Login} />
-        <Route path="/auth" component={Auth} />
+        <Route path="/login" component={Auth} />
+        <Route path="/auth" render={() => <Auth isAuth />} />
         <Route path="/" exact component={Homepage} />
         <Redirect to="/" />
       </Switch>
@@ -27,12 +26,11 @@ class App extends Component {
 
     return (
       <div className={styles.App}>
-        {/* {
+        {
           editorNames
             ? <Layout>{routes}</Layout>
             : <Spinner />
-        } */}
-        <Spinner />
+        }
       </div>
     );
   }
