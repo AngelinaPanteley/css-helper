@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import authReducer from './authReducer';
-import editorReducer from './editorReducer';
+import auth from './auth';
+import editors from './editor';
 
 const reducer = combineReducers({
-  auth: authReducer,
-  editors: editorReducer,
+  auth,
+  editors,
 });
 
 export default reducer;

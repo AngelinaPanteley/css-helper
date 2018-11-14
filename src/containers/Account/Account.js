@@ -7,6 +7,7 @@ import styles from './Account.scss';
 import Icon from '../../components/UI/Icon/Icon';
 import Dropdown from '../../components/UI/Dropdown/Dropdown';
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
+import * as actions from '../../store/actions/index';
 
 class Account extends Component {
   state = {
@@ -27,7 +28,7 @@ class Account extends Component {
   }
 
   render() {
-    const links = [
+    let links = [
       {
         title: 'Log In',
         route: '/login',
@@ -38,6 +39,20 @@ class Account extends Component {
       }
     ];
 
+    if (this.props.isAuth) {
+      links = [
+        {
+          title: 'My Savings',
+          route: '/savings',
+        },
+        {
+          title: 'Logout',
+          route: '/',
+          click: this.props.onLogout,
+        }
+      ];
+    }
+
     return (
       <Auxiliary>
         <div className={styles.Account}>
@@ -45,7 +60,9 @@ class Account extends Component {
             links.map((link) => {
               return (
                 <span className={styles.Account_Link_Wrapper} key={link.route}>
-                  <Link to={link.route} className={styles.Account_Link}>
+                  <Link to={link.route}
+                    className={styles.Account_Link}
+                    onClick={link.click}>
                     {link.title}
                   </Link>
                 </span>
@@ -71,7 +88,14 @@ class Account extends Component {
 const mapStateToProps = (state) => {
   return {
     editorNames: state.editors.names,
+    isAuth: !!state.auth.userId,
   }
 }
 
-export default connect(mapStateToProps)(Account);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onLogout: () => dispatch(actions.logout()),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Account);

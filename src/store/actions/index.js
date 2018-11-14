@@ -3,5 +3,6 @@ export {
 } from './editors';
 
 export {
-  auth
+  auth,
+  logout
 } from './auth';

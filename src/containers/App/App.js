@@ -24,6 +24,15 @@ class App extends Component {
       </Switch>
     );
 
+    if (this.props.isAuth) {
+      routes = (
+        <Switch>
+          <Route path="/" exact component={Homepage} />
+          <Redirect to="/" />
+        </Switch>
+      );
+    }
+
     return (
       <div className={styles.App}>
         {
@@ -39,6 +48,7 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     editorNames: state.editors.names,
+    isAuth: !!state.auth.userId,
   }
 }
 
