@@ -1,0 +1,15 @@
+@import '../../variables.scss';
+
+.Editor {
+  @include flex-wrapper(row,start, stretch);
+
+  min-height: calc(100vh - #{$header-height});
+}
+
+.PreviewContainer {
+  width: 70%;
+}
+
+.TabsContainer {
+  width: 30%;
+}

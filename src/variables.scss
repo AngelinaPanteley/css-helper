@@ -66,3 +66,11 @@ $z-index: (
     @content;
   }
 }
+
+.clearfix {
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
