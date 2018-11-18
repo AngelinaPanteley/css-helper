@@ -29,10 +29,13 @@
   border-bottom: 0;
 }
 
-.react-tabs__tab-panel {
+.react-tabs__tab-panel--selected {
   height: calc(100% - 37px);
-  overflow: auto;
-  background: #383a47;
   border: 1px solid #fff;
   border-top: 0;
+}
+
+.react-tabs__tab-panel {
+  overflow: auto;
+  background: #383a47;
 }

@@ -1,0 +1,13 @@
+@import '../../../variables';
+
+.NumberControl {
+  width: 90%;
+  margin: 20px auto;
+}
+
+.Label {
+  @include flex-wrapper;
+  
+  color: $color-white;
+  margin-bottom: 10px;
+}

@@ -4,3 +4,25 @@ export const updateObject = (oldObject, updatedProperties) => {
     ...updatedProperties
   };
 };
+
+export const calcStyles = (styles, controlValues, controls) => {
+  const calculatedStyles = {};
+
+  for (let styleKey in styles) {
+    let styleValue = styles[styleKey];
+
+    if (styleValue.indexOf('{') > -1) {
+      while (styleValue.indexOf('{') > -1) {
+        let index = styleValue.indexOf('{');
+        let lastIndex = styleValue.indexOf('}');
+        const property = styleValue.slice(index + 1, lastIndex);
+        styleValue = styleValue.slice(0, index) + controlValues[property]
+          + controls[property].units + styleValue.slice(++lastIndex);
+      }
+    }
+
+    calculatedStyles[styleKey] = styleValue;
+  }
+
+  return calculatedStyles;
+}

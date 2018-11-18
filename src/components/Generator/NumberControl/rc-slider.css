@@ -1,0 +1,55 @@
+.rc-slider-handle:active {
+  border-color: #ffffff;
+  box-shadow: 0 0 5px #ffffff;
+}
+
+.rc-slider-track {
+  background-color: #842a50;
+  height: 7px;
+}
+
+.rc-slider-rail {
+  background-color: #c41d55;
+  height: 7px;
+}
+
+.rc-slider-step {
+  height: 7px;
+}
+
+.rc-slider-handle {
+  border: solid 2px #ffffff;
+  background-color: #ffffff;
+  width: 17px;
+  height: 17px;
+}
+
+.rc-slider-handle-click-focused,
+.rc-slider-handle-click-focused:focus {
+  box-shadow: 0 0 1px 1px #fff;
+}
+
+.rc-slider-handle:hover {
+  box-shadow: 0 0 1px 1px #fff;
+  border-color: #fff;
+}
+
+.rc-slider-handle:focus {
+  border-color: #fff;
+  box-shadow: 0 0 1px 1px #fff;
+}
+
+.rc-slider-tooltip-inner {
+  background-color: #c41d55;
+}
+
+.rc-slider-tooltip-placement-top .rc-slider-tooltip-arrow {
+  border-top-color: #c31c55;
+}
+
+.rc-slider-output {
+  position: absolute;
+  bottom: 23px;
+  right: 0;
+  color: #fff;
+}

@@ -31,3 +31,35 @@ a {
     transition: $transition;
   }
 }
+
+figure,
+p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+::-webkit-scrollbar-button { 
+  display: none; 
+} 
+
+::-webkit-scrollbar-thumb { 
+  background-color: #525671; 
+  border-radius: 6px; 
+  cursor: pointer;
+} 
+  
+::-webkit-scrollbar-track { 
+  background-color: #a3a4aa; 
+  cursor: pointer;
+  border-radius: 6px;
+} 
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  cursor: pointer;
+}
