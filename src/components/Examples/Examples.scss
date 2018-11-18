@@ -1,0 +1,17 @@
+.Examples {
+  width: 100%;
+  height: 120px;
+  overflow-y: hidden;
+  overflow-x: auto;
+  display: flex;
+}
+
+.Open {
+  height: 120px;
+  transition: all .3s ease-in-out;
+}
+
+.Close {
+  height: 0;
+  transition: all .3s ease-in-out;
+}

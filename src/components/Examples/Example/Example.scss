@@ -1,0 +1,19 @@
+@import '../../../variables';
+
+.Example {
+  width: 100px;
+  min-width: 100px;
+  height: 100px;
+  margin: 0 10px;
+  text-align: center;
+  font-size: 15px;
+  color: #fff;
+  border: 1px solid #7a7b84;
+  cursor: pointer;
+}
+
+.SelectedExample {
+  @extend .Example;
+
+  border-color: $color-light-pink;
+}
