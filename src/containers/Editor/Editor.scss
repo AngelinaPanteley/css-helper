@@ -15,6 +15,12 @@
 
 .Preview {
   width: 80%;
+
+  & * {
+    @include flex-wrapper;
+    height: calc(100vh - 320px);
+    margin: 0 auto;
+  }
 }
 
 .TabsContainer {
@@ -23,5 +29,25 @@
 
 .ToggleLink {
   align-self: flex-start;
-  margin: 15px 0;
+  margin: 5px 0;
+}
+
+.SaveButton {
+  text-decoration: none;
+  color: $color-white;
+  transition: $transition;
+  font-size: 15px;
+  text-transform: uppercase;
+  padding: 9px 30px 5px;
+  border: 1px solid $color-white;
+  background: rgba(56, 58, 71, 0.55);
+  align-self: flex-end;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: rgba(255, 255, 255, 0.1);
+    transition: $transition;
+    color: $color-white;
+  }
 }

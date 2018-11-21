@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import styles from './Editor.scss';
 import { calcStyles } from '../../shared/utility';
@@ -9,6 +10,8 @@ import Generator from '../../components/Generator/Generator';
 import Preview from '../../components/Preview/Preview';
 import Code from '../../components/Code/Code';
 import Examples from '../../components/Examples/Examples';
+import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
+import SaveModal from '../../components/SaveModal/SaveModal';
 
 class Editor extends PureComponent {
   constructor(props) {
@@ -30,6 +33,7 @@ class Editor extends PureComponent {
       styleValues,
       initialStyleValues: styleValues,
       isExamplesOpen: true,
+      isModalOpen: false,
     }
   }
 
@@ -73,57 +77,89 @@ class Editor extends PureComponent {
     this.changeStyles();
   }
 
+  toggleSaveModal = (e) => {
+    e.preventDefault();
+
+    this.setState({
+      isModalOpen: !this.state.isModalOpen,
+    })
+  }
+
+  onSave = (title) => {
+    console.log(title);
+  }
+
   render() {
     const settings = this.props.settings;
     return (
-      <div className={styles.Editor}>
-        <div className={styles.PreviewContainer}>
-          <Examples isOpen={this.state.isExamplesOpen}
-            previewClass={settings.className}
-            template={settings.template}
-            examples={settings.examples}
-            initialControlValues={this.state.initialControlValues}
-            styles={settings.style}
-            controls={settings.controls}
-            selectExample={this.selectExample} />
-          <a href="" onClick={this.toggleExamples} className={styles.ToggleLink}>
-            {
-              this.state.isExamplesOpen
-                ?
-                'Hide Exampless'
-                :
-                'Show Examples'
-            }
-          </a>
-          <div className={styles.Preview}>
-            <Preview
+      <Auxiliary>
+        <div className={styles.Editor}>
+          <div className={styles.PreviewContainer}>
+            <Examples isOpen={this.state.isExamplesOpen}
               previewClass={settings.className}
               template={settings.template}
-              styles={this.state.styleValues} />
-          </div>
-          <button>Save</button>
-        </div>
-        <div className={styles.TabsContainer}>
-          <Tabs tabs={['Generator', 'Code']}>
-            <Generator
+              examples={settings.examples}
+              initialControlValues={this.state.initialControlValues}
+              styles={settings.style}
               controls={settings.controls}
-              controlValues={this.state.controlValues}
-              handleChange={this.handleChange} />
-            <Code
-              previewClass={settings.className}
-              template={settings.template}
-              styles={this.state.styleValues} />
-          </Tabs>
-        </div>
-      </div >
+              selectExample={this.selectExample} />
+            <a href="" onClick={this.toggleExamples} className={styles.ToggleLink}>
+              {
+                this.state.isExamplesOpen
+                  ?
+                  'Hide Examples'
+                  :
+                  'Show Examples'
+              }
+            </a>
+            <div className={styles.Preview}>
+              <Preview
+                previewClass={settings.className}
+                template={settings.template}
+                styles={this.state.styleValues} />
+            </div>
+            {
+              this.props.isAuth
+                ?
+                <a href=""
+                  className={styles.SaveButton}
+                  onClick={this.toggleSaveModal}>
+                  Save
+              </a>
+                :
+                <Link to='/login'
+                  className={styles.SaveButton}>
+                  Save
+              </Link>
+            }
+          </div>
+          <div className={styles.TabsContainer}>
+            <Tabs tabs={['Generator', 'Code']}>
+              <Generator
+                controls={settings.controls}
+                controlValues={this.state.controlValues}
+                handleChange={this.handleChange} />
+              <Code
+                previewClass={settings.className}
+                template={settings.template}
+                styles={this.state.styleValues} />
+            </Tabs>
+          </div>
+        </div >
+        <SaveModal
+          isOpen={this.state.isModalOpen}
+          onClose={this.toggleSaveModal}
+          onSubmit={this.onSave}
+        />
+      </Auxiliary>
     )
   }
 }
 
-// const mapStateToProps = (state) => {
-//   return {
-//     config: state
-//   }
-// }
+const mapStateToProps = (state) => {
+  return {
+    isAuth: !!state.auth.userId,
+  }
+}
 
-export default Editor;
+export default connect(mapStateToProps)(Editor);

@@ -8,6 +8,7 @@ import Homepage from '../Homepage/Homepage';
 import Layout from '../../hoc/Layout/Layout';
 import Auth from '../Auth/Auth';
 import Editor from '../Editor/Editor';
+import Savings from '../Savings/Savings';
 
 class App extends Component {
   componentDidMount() {
@@ -46,6 +47,7 @@ class App extends Component {
     if (this.props.isAuth) {
       routes = (
         <Switch>
+          <Route path="/savings" component={Savings} />
           {editorRoutes}
           <Route path="/" exact component={Homepage} />
           <Redirect to="/" />

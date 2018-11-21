@@ -16,8 +16,13 @@ export const calcStyles = (styles, controlValues, controls) => {
         let index = styleValue.indexOf('{');
         let lastIndex = styleValue.indexOf('}');
         const property = styleValue.slice(index + 1, lastIndex);
-        styleValue = styleValue.slice(0, index) + controlValues[property]
-          + controls[property].units + styleValue.slice(++lastIndex);
+        if (controls[property].units) {
+          styleValue = styleValue.slice(0, index) + controlValues[property]
+            + controls[property].units + styleValue.slice(++lastIndex);
+        } else {
+          styleValue = styleValue.slice(0, index) + controlValues[property]
+            + styleValue.slice(++lastIndex);
+        }
       }
     }
 

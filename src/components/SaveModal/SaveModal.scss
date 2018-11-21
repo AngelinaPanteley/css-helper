@@ -1,0 +1,99 @@
+@import '../../variables';
+
+.Modal {
+  @include xy-center;
+
+  position: absolute;
+  width: auto;
+  max-width: 70%;
+  height: auto;
+  z-index: map-get($z-index, popup);
+  background-color: $color-gray;
+  box-sizing: border-box;
+  transition: transform 0.3s ease-out;
+  padding: 40px;
+  border-radius: 5px;
+  top: 30vh;
+
+  &.Open {
+    transform: translate(-50%, 0);
+  }
+
+  &.Close {
+    transform: translate(-50%, calc(-100% - 30vh));
+  }
+}
+
+.Form {
+  @include flex-wrapper(column, flex-start, flex-start);
+
+  input[type='text'] {
+    height: 40px;
+    margin-bottom: 40px;
+    font-size: 20px;
+    padding: 0 10px;
+    color: $color-gray;
+    border: none;
+    outline: none;
+    width: 300px;
+  }
+
+  label {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+}
+
+.ButtonContainer {
+  @include flex-wrapper(row, flex-end);
+
+  width: 100%;
+
+  * {
+    margin-left: 10px;
+  }
+  
+  input, 
+  button {
+    text-decoration: none;
+    color: $color-white;
+    transition: $transition;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 9px 30px 10px;
+    border: 1px solid $color-white;
+    background: rgba(56, 58, 71, 0.55);
+    align-self: flex-end;
+    cursor: pointer;
+    outline: none;
+  }
+
+  button{
+    &:hover,
+    &:focus,
+    &:active {
+      background: rgba(255, 255, 255, 0.1);
+      transition: $transition;
+      color: $color-white;
+    }
+  }
+
+  input {
+    background: rgba(255, 0, 81, 0.4);
+
+    &[disabled] {
+      cursor: not-allowed;
+    }
+
+    &:hover,
+    &:focus[disabled=false],
+    &:active[disabled=false] {
+      &:not([disabled]) {
+        background: rgba(255, 0, 81, 0.6);
+        transition: $transition;
+        color: $color-white;
+      }
+    }
+  }
+}
