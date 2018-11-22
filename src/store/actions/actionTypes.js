@@ -6,3 +6,10 @@ export const AUTH_SUCCESS = 'AUTH_SUCCESS';
 export const AUTH_FAIL = 'AUTH_FAIL';
 export const AUTH_LOGOUT = 'AUTH_LOGOUT';
 export const AUTH_INIT = 'AUTH_INIT';
+
+export const SAVE_START = 'SAVE_START';
+export const SAVE_SUCCESS = 'SAVE_SUCCESS';
+export const SAVE_FAIL = 'SAVE_FAIL';
+export const GET_SAVINGS_START = 'GET_SAVINGS_START';
+export const GET_SAVINGS_SUCCESS = 'GET_SAVINGS_SUCCESS';
+export const GET_SAVINGS_FAIL = 'GET_SAVINGS_FAIL';

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import styles from './Account.scss';
 
@@ -40,10 +40,14 @@ class Account extends Component {
     ];
 
     if (this.props.isAuth) {
+      let showBy = localStorage.getItem('showBy');
+      if (!showBy) {
+        showBy = 5;
+      }
       links = [
         {
           title: 'My Savings',
-          route: '/savings',
+          route: `/savings/${showBy}/1`,
         },
         {
           title: 'Logout',
@@ -98,4 +102,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Account);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Account));

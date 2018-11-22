@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import styles from './Editor.scss';
 import { calcStyles } from '../../shared/utility';
-
+import * as actions from '../../store/actions/index';
 import Tabs from '../../components/UI/Tabs/Tabs';
 import Generator from '../../components/Generator/Generator';
 import Preview from '../../components/Preview/Preview';
@@ -18,23 +18,33 @@ class Editor extends PureComponent {
     super(props);
 
     const controls = props.settings.controls;
-    const controlValues = {};
+    const initialControlValues = {};
+    let controlValues = JSON.parse(localStorage.getItem(this.props.name));
+    console.log(controlValues);
 
     for (let name in controls) {
       const control = controls[name];
-      controlValues[name] = control.initialValue;
+      initialControlValues[name] = control.initialValue;
     };
+
+    if (!controlValues) {
+      controlValues = { ...initialControlValues };
+    }
 
     const styleValues = calcStyles(props.settings.style, controlValues, controls);
 
     this.state = {
       controlValues,
-      initialControlValues: controlValues,
+      initialControlValues,
       styleValues,
       initialStyleValues: styleValues,
       isExamplesOpen: true,
       isModalOpen: false,
     }
+  }
+
+  componentWillUnmount() {
+    localStorage.setItem(this.props.name, JSON.stringify(this.state.controlValues));
   }
 
   handleChange = (control, value) => {
@@ -86,7 +96,8 @@ class Editor extends PureComponent {
   }
 
   onSave = (title) => {
-    console.log(title);
+    const { userId, token } = this.props;
+    this.props.save(title, this.props.name, this.state.controlValues, userId, token);
   }
 
   render() {
@@ -159,7 +170,17 @@ class Editor extends PureComponent {
 const mapStateToProps = (state) => {
   return {
     isAuth: !!state.auth.userId,
+    userId: state.auth.userId,
+    token: state.auth.token,
   }
 }
 
-export default connect(mapStateToProps)(Editor);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    save: (title, editorName, controlValues, userId, token) => {
+      dispatch(actions.save(title, editorName, controlValues, userId, token));
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Editor);
