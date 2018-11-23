@@ -95,6 +95,18 @@ class Savings extends Component {
     this.props.history.push(`/${saving.editorName}`);
   }
 
+  deleteSavingItem = (id) => {
+    const savings = this.state.savings;
+    const index = savings.findIndex((item) => {
+      return item.id === id;
+    });
+    const newArray = [...savings.slice(0, index), ...savings.slice(index + 1)];
+    this.setState({
+      savings: newArray,
+    })
+    this.props.delete(id, this.props.token);
+  }
+
   render() {
     const { savings, showBy, pageNumber, itemId } = this.state;
     let length = 0;
@@ -128,6 +140,7 @@ class Savings extends Component {
                   <SavingList
                     items={savings.slice(startIndex, lastIndex)}
                     onEdit={this.editSavingItem}
+                    onDelete={this.deleteSavingItem}
                   />
                   <Breadcrumbs
                     pageAmount={Math.ceil(length / showBy)}
@@ -157,6 +170,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     getSavings: (userId, token) => {
       dispatch(actions.getSavings(userId, token));
+    },
+    delete: (id, token) => {
+      dispatch(actions.deleteSaving(id, token));
     },
   }
 }

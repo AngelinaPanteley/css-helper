@@ -5,7 +5,7 @@ import styles from './ShowBy.scss';
 class ShowBy extends PureComponent {
   render() {
     return (
-      <div>
+      <div className={styles.Wrapper}>
         <p>Show by
           <select value={this.props.value}
             onChange={(e) => this.props.onChange(e.target.value)}>

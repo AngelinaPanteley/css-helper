@@ -9,7 +9,7 @@ class SavingItem extends PureComponent {
       <div>
         {item.title}
         <button onClick={() => this.props.onEdit(item.id)}>Edit</button>
-        <button>Delete</button>
+        <button onClick={() => this.props.onDelete(item.id)}>Delete</button>
       </div>
     )
   }

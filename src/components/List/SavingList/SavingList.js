@@ -8,7 +8,11 @@ class SavingList extends PureComponent {
     return (
       <div>
         {this.props.items.map((item) => {
-          return <SavingItem key={item.id} item={item} onEdit={this.props.onEdit} />
+          return <SavingItem
+            key={item.id}
+            item={item}
+            onEdit={this.props.onEdit}
+            onDelete={this.props.onDelete} />
         })}
       </div>
     )

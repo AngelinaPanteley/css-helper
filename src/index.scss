@@ -64,3 +64,24 @@ img {
   height: 6px;
   cursor: pointer;
 }
+
+
+select {
+  margin: 0 10px;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid $color-white;
+  color: $color-white;
+  line-height: 20px;
+  font-size: 18px;
+  padding: 5px;
+  outline: none;
+  cursor: pointer;
+
+  option {
+    background: $color-gray;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+}

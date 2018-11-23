@@ -78,3 +78,38 @@ export const save = (title, editorName, controlValues, userId, token) => {
       });
   };
 };
+
+export const deleteStart = () => {
+  return {
+    type: actionTypes.DELETE_START,
+  };
+};
+
+export const deleteSuccess = () => {
+  return {
+    type: actionTypes.DELETE_SUCCESS,
+  };
+};
+
+export const deleteFail = (error) => {
+  return {
+    type: actionTypes.DELETE_FAIL,
+    error: error.message,
+  };
+};
+
+export const deleteSaving = (id, token) => {
+  return dispatch => {
+    dispatch(deleteStart());
+    const url = `/savings/${id}.json?auth=${token}`;
+
+    axios.delete(url)
+      .then(response => {
+        console.log(response)
+        dispatch(deleteSuccess());
+      })
+      .catch(error => {
+        dispatch(deleteFail(error));
+      });
+  };
+}

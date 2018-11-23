@@ -10,5 +10,6 @@ export {
 
 export {
   save,
-  getSavings
+  getSavings,
+  deleteSaving,
 } from './saving';
