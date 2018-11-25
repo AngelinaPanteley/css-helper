@@ -48,6 +48,8 @@ class App extends Component {
     if (this.props.isAuth) {
       routes = (
         <Switch>
+          <Route path="/login" component={Auth} />
+          <Route path="/auth" render={() => <Auth isAuth />} />
           <Route path="/savings/:showBy/:pageNumber/:itemId?" component={Savings} />
           {editorRoutes}
           <Route path="/" exact component={Homepage} />

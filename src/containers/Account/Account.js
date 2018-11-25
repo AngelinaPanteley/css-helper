@@ -51,7 +51,7 @@ class Account extends Component {
         },
         {
           title: 'Logout',
-          route: '/',
+          route: '',
           click: this.props.onLogout,
         }
       ];
@@ -64,11 +64,25 @@ class Account extends Component {
             links.map((link) => {
               return (
                 <span className={styles.Account_Link_Wrapper} key={link.route}>
-                  <Link to={link.route}
-                    className={styles.Account_Link}
-                    onClick={link.click}>
-                    {link.title}
-                  </Link>
+                  <Auxiliary>
+                    {
+                      link.route
+                        ?
+                        <Link to={link.route}
+                          className={styles.Account_Link}
+                          onClick={link.click}>
+                          {link.title}
+                        </Link>
+                        :
+                        <a className={styles.Account_Link}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            link.click()
+                          }}>
+                          {link.title}
+                        </a>
+                    }
+                  </Auxiliary>
                 </span>
               )
             })

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import styles from './Auth.scss';
 import * as actions from '../../store/actions/index';
@@ -13,6 +13,22 @@ class Auth extends Component {
     email: '',
     password: '',
     isPasswordValid: true,
+  }
+
+  componentDidMount() {
+    this.updateUrl();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (!prevProps.isSignedIn) {
+      this.updateUrl();
+    }
+  }
+
+  updateUrl = () => {
+    if (this.props.isSignedIn) {
+      this.props.history.goBack();
+    }
   }
 
   onInputChange = (e) => {
@@ -94,6 +110,7 @@ class Auth extends Component {
 const mapStateToProps = (state) => {
   return {
     isLoading: state.auth.loading,
+    isSignedIn: !!state.auth.userId,
   }
 }
 
@@ -103,4 +120,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Auth);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Auth));
