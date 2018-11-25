@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import styles from './Menu.scss';
@@ -6,7 +6,7 @@ import * as actions from '../../store/actions/index';
 import Icon from '../../components/UI/Icon/Icon';
 import Dropdown from '../../components/UI/Dropdown/Dropdown';
 
-class Menu extends Component {
+class Menu extends PureComponent {
   static propTypes = {
     editorNames: PropTypes.arrayOf(PropTypes.string).isRequired,
     turnEditingModeOff: PropTypes.func.isRequired,

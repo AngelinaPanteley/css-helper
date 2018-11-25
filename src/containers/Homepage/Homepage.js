@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Carousel from '../../components/UI/Carousel/Carousel';
 import * as actions from '../../store/actions/index';
 
-class Homepage extends Component {
+class Homepage extends PureComponent {
   static propTypes = {
     editors: PropTypes.object.isRequired,
     editorNames: PropTypes.arrayOf(PropTypes.string).isRequired,

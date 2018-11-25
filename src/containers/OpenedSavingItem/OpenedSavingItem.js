@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
@@ -7,7 +7,7 @@ import { calcStyles } from '../../shared/utility';
 import Preview from '../../components/Preview/Preview';
 import Pattern from '../../components/Code/Pattern/Pattern';
 
-class OpenedSavingItem extends Component {
+class OpenedSavingItem extends PureComponent {
   static propTypes = {
     settings: PropTypes.object.isRequired,
     isOpen: PropTypes.bool.isRequired,

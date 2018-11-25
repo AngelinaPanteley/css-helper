@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -11,7 +11,7 @@ import SavingList from '../../components/List/SavingList/SavingList';
 import Breadcrumbs from '../../components/List/Breadcrumbs/Breadcrumbs';
 import DeleteConfirmationModal from '../../components/List/SavingList/DeleteConfirmationModal/DeleteConfirmationModal';
 
-class Savings extends Component {
+class Savings extends PureComponent {
   static propTypes = {
     savings: PropTypes.object,
     loading: PropTypes.bool.isRequired,
