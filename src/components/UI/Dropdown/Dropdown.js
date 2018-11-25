@@ -25,10 +25,23 @@ const dropdown = (props) => {
           {
             props.links.map((link) => {
               return (
-                <li key={link.route} className={styles.List_Item}>
-                  <Link to={link.route} onClick={props.onClose}>
-                    {link.title}
-                  </Link>
+                <li key={link.title} className={styles.List_Item}>
+                  {
+                    link.route
+                      ?
+                      <Link to={link.route}
+                        onClick={props.onClose}>
+                        {link.title}
+                      </Link>
+                      :
+                      <a onClick={(e) => {
+                        e.preventDefault();
+                        props.onClose();
+                        link.click();
+                      }}>
+                        {link.title}
+                      </a>
+                  }
                 </li>
               )
             })

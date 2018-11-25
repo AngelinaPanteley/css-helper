@@ -5,6 +5,10 @@
   padding-top: 10%;
   margin: auto;
 
+  @include mobile {
+    width: 95%;
+  }
+
   &_Item {
     display: flex;
     flex-direction: column-reverse;
@@ -67,6 +71,10 @@
       transition: $transition;
       font-size: 20px;
       cursor: pointer;
+
+      @include mobile {
+        padding: 10px 30px;
+      }
 
       &:hover,
       &:active,

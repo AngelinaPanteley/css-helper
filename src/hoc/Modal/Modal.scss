@@ -15,6 +15,11 @@
   border-radius: 5px;
   top: 30vh;
 
+  @include mobile {
+    max-width: 95%;
+    padding: 30px;
+  }
+
   &.Open {
     transform: translate(-50%, 0);
   }

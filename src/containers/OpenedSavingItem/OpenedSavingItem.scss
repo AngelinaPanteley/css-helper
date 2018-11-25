@@ -12,6 +12,14 @@
 
   &.Open {
     height: 250px;
+
+    @include mobile {
+      height: 460px;
+      padding: 15px 30px;
+      justify-content: space-around;
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
   }
 
   &.Close {
@@ -24,9 +32,17 @@
   width: 49%;
   display: flex;
   justify-content: center;
+  
+  @include mobile {
+    width: 100%;
+  }
 }
 
 .Pattern {
   width: 49%;
   margin-bottom: -60px;
+
+  @include mobile {
+    width: 100%;
+  }
 }

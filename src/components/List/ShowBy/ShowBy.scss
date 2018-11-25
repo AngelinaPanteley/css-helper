@@ -1,6 +1,12 @@
+@import '../../../variables';
+
 .Wrapper {
   color: #fff;
   font-size: 17px;
   text-align: right;
   margin-bottom: 20px;
+
+  @include mobile {
+    margin-right: 30px;
+  }
 }
