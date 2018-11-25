@@ -11,20 +11,20 @@ class Breadcrumbs extends PureComponent {
     }
 
     return (
-      <div>
-        <button
+      <div className={styles.Wrapper}>
+        <button className={styles.Link}
           onClick={() => { this.props.onChange(pageNumber - 1) }}
           disabled={pageNumber - 1 === 0}>
-          Prev
+          &lt;&nbsp;&nbsp;&nbsp;Prev
         </button>
         <select value={pageNumber}
           onChange={(e) => { this.props.onChange(+e.target.value) }}>
           {optionArray}
         </select>
-        <button
+        <button className={styles.Link}
           onClick={() => { this.props.onChange(pageNumber + 1) }}
           disabled={pageNumber + 1 > pageAmount}>
-          Next
+          Next&nbsp;&nbsp;&nbsp;&gt;
           </button>
       </div>
     )

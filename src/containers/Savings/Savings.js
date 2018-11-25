@@ -107,6 +107,14 @@ class Savings extends Component {
     this.props.delete(id, this.props.token);
   }
 
+  openSavingItem = (id) => {
+    const { showBy, pageNumber } = this.state;
+    this.setState({
+      itemId: id,
+    });
+    this.props.history.push(`/savings/${showBy}/${pageNumber}/${id}`);
+  }
+
   render() {
     const { savings, showBy, pageNumber, itemId } = this.state;
     let length = 0;
@@ -132,15 +140,12 @@ class Savings extends Component {
                     onChange={this.changeShowBy}
                     length={length}
                   />
-                  <Breadcrumbs
-                    pageAmount={Math.ceil(length / showBy)}
-                    pageNumber={pageNumber}
-                    onChange={this.changePageNumber}
-                  />
                   <SavingList
                     items={savings.slice(startIndex, lastIndex)}
+                    openItem={itemId}
                     onEdit={this.editSavingItem}
                     onDelete={this.deleteSavingItem}
+                    onClick={this.openSavingItem}
                   />
                   <Breadcrumbs
                     pageAmount={Math.ceil(length / showBy)}

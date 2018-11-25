@@ -1,0 +1,22 @@
+@import '../../../variables';
+
+.Link {
+  background: none;
+  border: none;
+  color: $color-white;
+  outline: none;
+  cursor: pointer;
+  font-size: 17px;
+  transition: $transition;
+
+  &:hover {
+    text-shadow: 0 0 1px $color-white;
+    transition: $transition;
+  }
+}
+
+.Wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}

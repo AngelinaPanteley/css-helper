@@ -1,0 +1,19 @@
+@import '../../variables';
+
+.Wrapper {
+  @include flex-wrapper;
+
+  border-bottom: 2px solid $color-border;
+  padding: 10px 30px;
+}
+
+.Preview {
+  width: 49%;
+  display: flex;
+  justify-content: center;
+}
+
+.Pattern {
+  width: 49%;
+  margin-bottom: -60px;
+}

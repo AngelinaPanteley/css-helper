@@ -18,8 +18,9 @@
   &:hover,
   &:focus,
   &:active {
-    color: $color-light-pink;
-    border: 1px solid $color-light-pink;
+    color: white;
+    text-shadow: 0 0 2px white;
+    box-shadow: 0 0 7px 2px white;
     transition: $transition;
   }
 

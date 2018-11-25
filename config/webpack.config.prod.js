@@ -194,7 +194,7 @@ module.exports = {
                         importLoaders: 1,
                         modules: true,
                         localIdentName: '[path]__[name]___[local]',
-                        minimize: true,
+                        minimize: false,
                         sourceMap: shouldUseSourceMap,
                       },
                     },
@@ -242,7 +242,7 @@ module.exports = {
                       loader: require.resolve('css-loader'),
                       options: {
                         importLoaders: 1,
-                        minimize: true,
+                        minimize: false,
                         sourceMap: shouldUseSourceMap,
                       },
                     },
