@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import styles from './SaveModal.scss';
-import Backdrop from '../UI/Backdrop/Backdrop';
-import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
+import Modal from '../../hoc/Modal/Modal';
 
 class SaveModal extends PureComponent {
   state = {
@@ -20,29 +19,17 @@ class SaveModal extends PureComponent {
   }
 
   render() {
-    const attachedClasses = [styles.Modal];
-    if (this.props.isOpen) {
-      attachedClasses.push(styles.Open);
-    } else {
-      attachedClasses.push(styles.Close);
-    }
     return (
-      <Auxiliary>
-        <Backdrop
-          show={this.props.isOpen}
-          clicked={this.props.onClose}
-          withBackground={true} />
-        <div className={attachedClasses.join(' ')}>
-          <form onSubmit={this.handleSubmit} className={styles.Form}>
-            <label htmlFor='title'>Enter title:</label>
-            <input id='title' name='title' type="text" onChange={this.handleChange} />
-            <div className={styles.ButtonContainer}>
-              <button onClick={this.props.onClose}>Cancel</button>
-              <input type="submit" value="Save" disabled={!this.state.title} />
-            </div>
-          </form>
-        </div>
-      </Auxiliary>
+      <Modal isOpen={this.props.isOpen} onClose={this.props.onClose}>
+        <form onSubmit={this.handleSubmit} className={styles.Form}>
+          <label htmlFor='title'>Enter title:</label>
+          <input id='title' name='title' type="text" onChange={this.handleChange} />
+          <div className={styles.ButtonContainer}>
+            <button onClick={this.props.onClose}>Cancel</button>
+            <input type="submit" value="Save" disabled={!this.state.title} />
+          </div>
+        </form>
+      </Modal>
     );
   }
 }

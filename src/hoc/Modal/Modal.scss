@@ -1,0 +1,25 @@
+@import '../../variables';
+
+.Modal {
+  @include xy-center;
+
+  position: absolute;
+  width: auto;
+  max-width: 70%;
+  height: auto;
+  z-index: map-get($z-index, popup);
+  background-color: $color-gray;
+  box-sizing: border-box;
+  transition: transform 0.3s ease-out;
+  padding: 40px;
+  border-radius: 5px;
+  top: 30vh;
+
+  &.Open {
+    transform: translate(-50%, 0);
+  }
+
+  &.Close {
+    transform: translate(-50%, calc(-100% - 30vh));
+  }
+}

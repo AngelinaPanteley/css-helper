@@ -8,10 +8,13 @@ import Spinner from '../../components/UI/Spinner/Spinner';
 import ShowBy from '../../components/List/ShowBy/ShowBy';
 import SavingList from '../../components/List/SavingList/SavingList';
 import Breadcrumbs from '../../components/List/Breadcrumbs/Breadcrumbs';
+import DeleteConfirmationModal from '../../components/List/SavingList/DeleteConfirmationModal/DeleteConfirmationModal';
 
 class Savings extends Component {
   state = {
     savings: null,
+    deleteItemId: null,
+    isConfirmationModalOpen: false,
   }
 
   componentDidMount() {
@@ -95,8 +98,17 @@ class Savings extends Component {
     this.props.history.push(`/${saving.editorName}`);
   }
 
-  deleteSavingItem = (id) => {
+  openConfirmationModal = (id) => {
+    this.confirmationModalToggle();
+
+    this.setState({
+      deleteItemId: id,
+    });
+  }
+
+  deleteSavingItem = () => {
     const savings = this.state.savings;
+    const id = this.state.deleteItemId;
     const index = savings.findIndex((item) => {
       return item.id === id;
     });
@@ -105,6 +117,13 @@ class Savings extends Component {
       savings: newArray,
     })
     this.props.delete(id, this.props.token);
+    this.confirmationModalToggle();
+  }
+
+  confirmationModalToggle = () => {
+    this.setState({
+      isConfirmationModalOpen: !this.state.isConfirmationModalOpen,
+    });
   }
 
   openSavingItem = (id) => {
@@ -144,13 +163,18 @@ class Savings extends Component {
                     items={savings.slice(startIndex, lastIndex)}
                     openItem={itemId}
                     onEdit={this.editSavingItem}
-                    onDelete={this.deleteSavingItem}
+                    onDelete={this.openConfirmationModal}
                     onClick={this.openSavingItem}
                   />
                   <Breadcrumbs
                     pageAmount={Math.ceil(length / showBy)}
                     pageNumber={pageNumber}
                     onChange={this.changePageNumber}
+                  />
+                  <DeleteConfirmationModal
+                    isOpen={this.state.isConfirmationModalOpen}
+                    onClose={this.confirmationModalToggle}
+                    onConfirm={this.deleteSavingItem}
                   />
                 </div>
                 :

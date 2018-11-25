@@ -1,24 +1,9 @@
-@import '../../variables';
+@import '../../../../variables';
 
-.Form {
-  @include flex-wrapper(column, flex-start, flex-start);
-
-  input[type='text'] {
-    height: 40px;
-    margin-bottom: 40px;
-    font-size: 20px;
-    padding: 0 10px;
-    color: $color-gray;
-    border: none;
-    outline: none;
-    width: 300px;
-  }
-
-  label {
-    color: white;
-    margin-bottom: 20px;
-    font-size: 20px;
-  }
+.ModalTitle {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 20px;
 }
 
 .ButtonContainer {
@@ -30,7 +15,6 @@
     margin-left: 10px;
   }
   
-  input, 
   button {
     text-decoration: none;
     color: $color-white;
@@ -55,7 +39,7 @@
     }
   }
 
-  input {
+  .Confirm {
     background: rgba(255, 0, 81, 0.4);
 
     &[disabled] {
