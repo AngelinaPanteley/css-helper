@@ -18,6 +18,10 @@ class Generator extends PureComponent {
 
     return (
       <div className={styles.Generator} >
+        <button onClick={this.props.onClear}
+          className={styles.ClearButton}>
+          Clear All
+        </button>
         {controls}
       </div>
     );

@@ -20,7 +20,6 @@ class Editor extends PureComponent {
     const controls = props.settings.controls;
     const initialControlValues = {};
     let controlValues = JSON.parse(localStorage.getItem(this.props.name));
-    console.log(controlValues);
 
     for (let name in controls) {
       const control = controls[name];
@@ -32,12 +31,13 @@ class Editor extends PureComponent {
     }
 
     const styleValues = calcStyles(props.settings.style, controlValues, controls);
+    const initialStyleValues = calcStyles(props.settings.style, initialControlValues, controls);
 
     this.state = {
       controlValues,
       initialControlValues,
       styleValues,
-      initialStyleValues: styleValues,
+      initialStyleValues,
       isExamplesOpen: true,
       isModalOpen: false,
     }
@@ -117,6 +117,14 @@ class Editor extends PureComponent {
     this.props.openHint('Copied.');
   }
 
+  clearControlValues = () => {
+    console.log(this.state.initialStyleValues)
+    this.setState({
+      styleValues: { ...this.state.initialStyleValues },
+      controlValues: { ...this.state.initialControlValues },
+    })
+  }
+
   render() {
     const settings = this.props.settings;
     return (
@@ -176,7 +184,8 @@ class Editor extends PureComponent {
               <Generator
                 controls={settings.controls}
                 controlValues={this.state.controlValues}
-                handleChange={this.handleChange} />
+                handleChange={this.handleChange}
+                onClear={this.clearControlValues} />
               <Code
                 previewClass={settings.className}
                 template={settings.template}
