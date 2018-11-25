@@ -5,6 +5,11 @@ import Backdrop from '../../components/UI/Backdrop/Backdrop';
 import Auxiliary from '../Auxiliary/Auxiliary';
 
 class Modal extends PureComponent {
+  static propTypes = {
+    isOpen: PropTypes.bool.isRequired,
+    onClose: PropTypes.func.isRequired,
+  }
+
   render() {
     const attachedClasses = [styles.Modal];
     if (this.props.isOpen) {

@@ -10,6 +10,12 @@ import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 import Spinner from '../../components/UI/Spinner/Spinner';
 
 class Auth extends Component {
+  static propTypes = {
+    isLoading: PropTypes.bool.isRequired,
+    isSignedIn: PropTypes.bool.isRequired,
+    auth: PropTypes.func.isRequired,
+  }
+
   state = {
     email: '',
     password: '',

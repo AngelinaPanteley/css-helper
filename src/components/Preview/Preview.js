@@ -3,6 +3,12 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 class Preview extends PureComponent {
+  static propTypes = {
+    template: PropTypes.string.isRequired,
+    previewClass: PropTypes.string.isRequired,
+    styles: PropTypes.object.isRequired,
+  }
+
   componentDidMount() {
     this.setStyles();
   }

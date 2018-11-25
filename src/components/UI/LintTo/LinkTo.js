@@ -13,4 +13,9 @@ const link = (props) => {
   )
 }
 
+link.propTypes = {
+  route: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+}
+
 export default link;

@@ -6,6 +6,13 @@ import Auxiliary from '../../../../hoc/Auxiliary/Auxiliary';
 import OpenedSavingItem from '../../../../containers/OpenedSavingItem/OpenedSavingItem';
 
 class SavingItem extends PureComponent {
+  static propTypes = {
+    isOpen: PropTypes.bool.isRequired,
+    onClick: PropTypes.func.isRequired,
+    onEdit: PropTypes.func.isRequired,
+    onDelete: PropTypes.func.isRequired,
+  }
+
   render() {
     const item = this.props.item;
     return (

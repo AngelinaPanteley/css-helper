@@ -23,4 +23,8 @@ const CustomTabs = (props) => {
   )
 };
 
+CustomTabs.propTypes = {
+  tabs: PropTypes.arrayOf(PropTypes.string).isRequired,
+}
+
 export default CustomTabs;

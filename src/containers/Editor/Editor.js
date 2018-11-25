@@ -14,6 +14,17 @@ import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 import SaveModal from '../../components/SaveModal/SaveModal';
 
 class Editor extends PureComponent {
+  static propTypes = {
+    isAuth: PropTypes.bool.isRequired,
+    userId: PropTypes.string,
+    token: PropTypes.string,
+    editingItemId: PropTypes.string,
+    editingItemTitle: PropTypes.string,
+    save: PropTypes.func.isRequired,
+    saveEditedItem: PropTypes.func.isRequired,
+    openHint: PropTypes.func.isRequired,
+  }
+
   constructor(props) {
     super(props);
 
@@ -118,7 +129,6 @@ class Editor extends PureComponent {
   }
 
   clearControlValues = () => {
-    console.log(this.state.initialStyleValues)
     this.setState({
       styleValues: { ...this.state.initialStyleValues },
       controlValues: { ...this.state.initialControlValues },

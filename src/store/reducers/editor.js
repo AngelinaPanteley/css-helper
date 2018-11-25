@@ -24,7 +24,6 @@ const turnEditingModeOn = (state, action) => {
 }
 
 const turnEditingModeOff = (state, action) => {
-  console.log('OFFF')
   return updateObject(state, {
     editingItemId: null,
     editingItemTitle: null,

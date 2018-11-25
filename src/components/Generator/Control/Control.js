@@ -44,6 +44,7 @@ class Control extends PureComponent {
             this.props.handleChange(value.hex)
           }} />;
         break;
+      default: break;
     }
     return (
       <div className={styles.NumberControl} >

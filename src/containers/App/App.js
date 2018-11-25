@@ -13,6 +13,18 @@ import Savings from '../Savings/Savings';
 import Hint from '../../components/UI/Hint/Hint';
 
 class App extends Component {
+  static propTypes = {
+    editorNames: PropTypes.arrayOf(PropTypes.string),
+    editorSettings: PropTypes.object,
+    isAuth: PropTypes.bool.isRequired,
+    isHintOpen: PropTypes.bool.isRequired,
+    isHintError: PropTypes.bool,
+    hintText: PropTypes.string,
+    initEditors: PropTypes.func.isRequired,
+    initUser: PropTypes.func.isRequired,
+    closeHint: PropTypes.func.isRequired,
+  }
+
   componentDidMount() {
     this.props.initEditors();
     this.props.initUser();

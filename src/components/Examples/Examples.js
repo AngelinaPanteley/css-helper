@@ -49,7 +49,7 @@ class Examples extends PureComponent {
           styles={styles}
           exampleName={exampleName}
           selectExample={this.selectExample}
-          isSelected={exampleName == this.state.selectedExample} />
+          isSelected={exampleName === this.state.selectedExample} />
       );
     }
 

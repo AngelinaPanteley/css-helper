@@ -11,6 +11,12 @@ import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 import * as actions from '../../store/actions/index';
 
 class Account extends Component {
+  static propTypes = {
+    editorNames: PropTypes.arrayOf(PropTypes.string).isRequired,
+    isAuth: PropTypes.bool.isRequired,
+    onLogout: PropTypes.func.isRequired,
+  }
+
   state = {
     isDropdownOpen: false,
   }

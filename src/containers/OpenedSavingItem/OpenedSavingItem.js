@@ -8,6 +8,13 @@ import Preview from '../../components/Preview/Preview';
 import Pattern from '../../components/Code/Pattern/Pattern';
 
 class OpenedSavingItem extends Component {
+  static propTypes = {
+    settings: PropTypes.object.isRequired,
+    isOpen: PropTypes.bool.isRequired,
+    item: PropTypes.object.isRequired,
+    openHint: PropTypes.func.isRequired,
+  }
+
   constructor(props) {
     super(props);
 

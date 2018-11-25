@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import styles from './Logo.scss';
 import logoImg from '../../assets/images/logo.png';
 

@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 import styles from './ShowBy.scss';
 
 class ShowBy extends PureComponent {
+  static propTypes = {
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    onChange: PropTypes.func.isRequired,
+    length: PropTypes.number.isRequired,
+  }
+
   render() {
     return (
       <div className={styles.Wrapper}>

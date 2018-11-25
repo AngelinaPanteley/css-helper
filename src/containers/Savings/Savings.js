@@ -12,6 +12,16 @@ import Breadcrumbs from '../../components/List/Breadcrumbs/Breadcrumbs';
 import DeleteConfirmationModal from '../../components/List/SavingList/DeleteConfirmationModal/DeleteConfirmationModal';
 
 class Savings extends Component {
+  static propTypes = {
+    savings: PropTypes.object,
+    loading: PropTypes.bool.isRequired,
+    userId: PropTypes.string.isRequired,
+    token: PropTypes.string.isRequired,
+    getSavings: PropTypes.func.isRequired,
+    delete: PropTypes.func.isRequired,
+    turnEditingModeOn: PropTypes.func.isRequired,
+  }
+
   state = {
     savings: null,
     deleteItemId: null,
@@ -36,7 +46,7 @@ class Savings extends Component {
 
     if (!this.state.savings &&
       this.props.savings &&
-      this.props.savings != prevProps.savings) {
+      this.props.savings !== prevProps.savings) {
       const savings = [];
       const keys = Object.keys(this.props.savings);
       keys.forEach((key) => {

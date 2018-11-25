@@ -4,6 +4,11 @@ import Modal from '../../hoc/Modal/Modal';
 import PropTypes from 'prop-types';
 
 class SaveModal extends PureComponent {
+  static propTypes = {
+    isOpen: PropTypes.bool.isRequired,
+    onClose: PropTypes.func.isRequired,
+  }
+
   state = {
     title: '',
   }

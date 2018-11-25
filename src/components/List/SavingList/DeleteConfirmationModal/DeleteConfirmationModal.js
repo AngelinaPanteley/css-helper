@@ -25,4 +25,10 @@ const deleteConfirmationModal = (props) => {
   );
 }
 
+deleteConfirmationModal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  onConfirm: PropTypes.func.isRequired,
+}
+
 export default deleteConfirmationModal;

@@ -4,6 +4,12 @@ import styles from './Hint.scss';
 import Icon from '../Icon/Icon';
 
 class Hint extends PureComponent {
+  static propTypes = {
+    isOpen: PropTypes.bool.isRequired,
+    isError: PropTypes.bool,
+    onClose: PropTypes.func.isRequired,
+  }
+
   render() {
     const hintStyles = [styles.Hint];
     if (this.props.isOpen) {

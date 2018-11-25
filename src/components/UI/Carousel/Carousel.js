@@ -5,11 +5,11 @@ import "./lib/carousel.css";
 import './Carousel.css';
 import LinkTo from '../LintTo/LinkTo';
 
-export default (props) => {
+const carousel = (props) => {
   const slides = props.slides.map((slide) => {
     return (
       <div key={slide.imageUrl}>
-        <img src={slide.imageUrl} />
+        <img src={slide.imageUrl} alt='Editor Background' />
         <LinkTo route={slide.route}
           onClick={props.onClick}>
           {slide.title}
@@ -24,3 +24,10 @@ export default (props) => {
     </Carousel>
   );
 };
+
+carousel.propTypes = {
+  slides: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onClick: PropTypes.func.isRequired,
+}
+
+export default carousel;

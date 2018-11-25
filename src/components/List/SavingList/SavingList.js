@@ -4,6 +4,13 @@ import styles from './SavingList.scss';
 import SavingItem from './SavingItem/SavingItem';
 
 class SavingList extends PureComponent {
+  static propTypes = {
+    openItem: PropTypes.string,
+    onClick: PropTypes.func.isRequired,
+    onEdit: PropTypes.func.isRequired,
+    onDelete: PropTypes.func.isRequired,
+  }
+
   render() {
     return (
       <div className={styles.Wrapper}>

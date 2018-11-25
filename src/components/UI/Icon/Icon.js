@@ -8,4 +8,8 @@ const icon = (props) => {
   )
 }
 
+icon.propTypes = {
+  icon: PropTypes.string.isRequired,
+}
+
 export default icon;

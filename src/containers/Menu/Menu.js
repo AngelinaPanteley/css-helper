@@ -7,6 +7,11 @@ import Icon from '../../components/UI/Icon/Icon';
 import Dropdown from '../../components/UI/Dropdown/Dropdown';
 
 class Menu extends Component {
+  static propTypes = {
+    editorNames: PropTypes.arrayOf(PropTypes.string).isRequired,
+    turnEditingModeOff: PropTypes.func.isRequired,
+  }
+
   state = {
     isDropdownOpen: false,
   }
