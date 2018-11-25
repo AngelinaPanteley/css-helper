@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-
+import PropTypes from 'prop-types';
 import styles from './Control.scss';
 import 'rc-slider/assets/index.css';
 import 'rc-tooltip/assets/bootstrap.css';
@@ -12,6 +12,17 @@ const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const SliderWithTooltip = createSliderWithTooltip(Slider);
 
 class Control extends PureComponent {
+  static propsTypes = {
+    control: PropTypes.shape({
+      type: PropTypes.string.isRequired,
+      initialValue: PropTypes.oneOfType([PropTypes.string,
+      PropTypes.number]).isRequired
+    }).isRequired,
+    handleChange: PropTypes.func.isRequired,
+    value: PropTypes.oneOfType([PropTypes.string,
+    PropTypes.number]).isRequired,
+  }
+
   render() {
     const control = this.props.control;
     let renderControl = null;

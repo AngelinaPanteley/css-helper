@@ -1,9 +1,20 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import styles from './Examples.scss';
 import Example from './Example/Example';
 import { calcStyles } from '../../shared/utility';
 
 class Examples extends PureComponent {
+  static propsTypes = {
+    styles: PropTypes.objectOf(PropTypes.string).isRequired,
+    initialControlValues: PropTypes.object.isRequired,
+    controls: PropTypes.object.isRequired,
+    isOpen: PropTypes.bool.isRequired,
+    selectExample: PropTypes.func.isRequired,
+    template: PropTypes.string.isRequired,
+    previewClass: PropTypes.string.isRequired,
+  }
+
   constructor(props) {
     super(props);
 

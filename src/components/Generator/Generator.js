@@ -1,10 +1,17 @@
 import React, { PureComponent } from 'react';
-
+import PropTypes from 'prop-types';
 import styles from './Generator.scss';
 
 import Control from './Control/Control';
 
 class Generator extends PureComponent {
+  static propsTypes = {
+    controls: PropTypes.object.isRequired,
+    controlValues: PropTypes.object.isRequired,
+    handleChange: PropTypes.func.isRequired,
+    onClear: PropTypes.func.isRequired,
+  }
+
   render() {
     const controls = [];
     for (let cont in this.props.controls) {

@@ -1,8 +1,12 @@
 import React, { PureComponent } from 'react';
-
+import PropTypes from 'prop-types';
 import styles from './Breadcrumbs.scss';
 
 class Breadcrumbs extends PureComponent {
+  static propTypes = {
+    onChange: PropTypes.func.isRequired,
+  }
+
   render() {
     const { pageNumber, pageAmount } = this.props;
     const optionArray = [];

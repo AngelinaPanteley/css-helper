@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import styles from './Modal.scss';
 import Backdrop from '../../components/UI/Backdrop/Backdrop';
 import Auxiliary from '../Auxiliary/Auxiliary';

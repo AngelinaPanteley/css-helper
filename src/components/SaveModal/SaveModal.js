@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import styles from './SaveModal.scss';
 import Modal from '../../hoc/Modal/Modal';
+import PropTypes from 'prop-types';
 
 class SaveModal extends PureComponent {
   state = {

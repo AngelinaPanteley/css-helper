@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-
+import PropTypes from 'prop-types';
 import styles from './ShowBy.scss';
 
 class ShowBy extends PureComponent {

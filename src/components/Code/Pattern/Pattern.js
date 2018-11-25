@@ -1,9 +1,16 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import styles from './Pattern.scss';
 import Icon from '../../UI/Icon/Icon';
 
 class Pattern extends PureComponent {
+  static propsTypes = {
+    title: PropTypes.string.isRequired,
+    code: PropTypes.string.isRequired,
+    onCopy: PropTypes.func.isRequired,
+  }
+
   render() {
     return (
       <div className={styles.Wrapper}>

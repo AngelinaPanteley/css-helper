@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { Carousel } from "react-responsive-carousel";
 import "./lib/carousel.css";
 import './Carousel.css';
@@ -9,7 +10,10 @@ export default (props) => {
     return (
       <div key={slide.imageUrl}>
         <img src={slide.imageUrl} />
-        <LinkTo route={slide.route}>{slide.title}</LinkTo>
+        <LinkTo route={slide.route}
+          onClick={props.onClick}>
+          {slide.title}
+        </LinkTo>
       </div>
     );
   });

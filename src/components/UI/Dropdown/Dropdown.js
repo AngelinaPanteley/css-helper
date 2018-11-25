@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styles from './Dropdown.scss';
 import Backdrop from '../Backdrop/Backdrop';
@@ -30,13 +31,21 @@ const dropdown = (props) => {
                     link.route
                       ?
                       <Link to={link.route}
-                        onClick={props.onClose}>
+                        onClick={() => {
+                          props.onClose();
+                          if (props.onClick) {
+                            props.onClick();
+                          }
+                        }}>
                         {link.title}
                       </Link>
                       :
                       <a onClick={(e) => {
                         e.preventDefault();
                         props.onClose();
+                        if (props.onClick) {
+                          props.onClick();
+                        }
                         link.click();
                       }}>
                         {link.title}

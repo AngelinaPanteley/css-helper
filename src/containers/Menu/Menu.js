@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import PropTypes from 'prop-types';
 import styles from './Menu.scss';
-
+import * as actions from '../../store/actions/index';
 import Icon from '../../components/UI/Icon/Icon';
 import Dropdown from '../../components/UI/Dropdown/Dropdown';
 
@@ -40,6 +40,7 @@ class Menu extends Component {
         {
           <Dropdown isOpen={this.state.isDropdownOpen}
             links={links} left
+            onClick={this.props.turnEditingModeOff}
             onClose={this.toggleDropdown} />
         }
       </div>
@@ -53,4 +54,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Menu);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    turnEditingModeOff: () => dispatch(actions.turnEditingModeOff()),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Menu);

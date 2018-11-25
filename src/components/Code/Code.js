@@ -1,8 +1,16 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import styles from './Code.scss';
 import Pattern from './Pattern/Pattern';
 
 class Code extends PureComponent {
+  static propsTypes = {
+    styles: PropTypes.objectOf(PropTypes.string).isRequired,
+    previewClass: PropTypes.string.isRequired,
+    onCopy: PropTypes.func.isRequired,
+    template: PropTypes.string.isRequired,
+  }
+
   render() {
     let styleString = '';
     for (let styleKey in this.props.styles) {

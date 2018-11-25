@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import PropTypes from 'prop-types';
 import styles from './Editor.scss';
 import { calcStyles } from '../../shared/utility';
 import * as actions from '../../store/actions/index';

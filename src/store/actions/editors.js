@@ -36,7 +36,5 @@ export const turnEditingModeOn = (id, title) => {
 export const turnEditingModeOff = () => {
   return {
     type: actionTypes.TURN_EDITING_MODE_OFF,
-    editingItemId: null,
-    editingItemTitle: null,
   }
 }

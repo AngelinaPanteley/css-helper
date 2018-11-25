@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-
+import PropTypes from 'prop-types';
 import styles from './SavingList.scss';
 import SavingItem from './SavingItem/SavingItem';
 

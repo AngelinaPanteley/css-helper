@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styles from './Homepage.scss';
-
+import PropTypes from 'prop-types';
 import Carousel from '../../components/UI/Carousel/Carousel';
+import * as actions from '../../store/actions/index';
 
 class Homepage extends Component {
   render() {
@@ -15,7 +16,7 @@ class Homepage extends Component {
     });
 
     return (
-      <Carousel slides={slides} />
+      <Carousel slides={slides} onClick={this.props.turnEditingModeOff} />
     )
   }
 }
@@ -27,4 +28,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Homepage);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    turnEditingModeOff: () => dispatch(actions.turnEditingModeOff()),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Homepage);

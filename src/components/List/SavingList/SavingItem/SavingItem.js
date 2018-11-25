@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-
+import PropTypes from 'prop-types';
 import styles from './SavingItem.scss';
 import Icon from '../../../UI/Icon/Icon';
 import Auxiliary from '../../../../hoc/Auxiliary/Auxiliary';
