@@ -100,6 +100,23 @@ class Editor extends PureComponent {
     this.props.save(title, this.props.name, this.state.controlValues, userId, token);
   }
 
+  saveEdited = (e) => {
+    e.preventDefault();
+    const { userId, token } = this.props;
+    this.props.saveEditedItem(
+      this.props.editingItemId,
+      this.props.editingItemTitle,
+      this.props.name,
+      this.state.controlValues,
+      userId,
+      token
+    );
+  }
+
+  openCopyHint = () => {
+    this.props.openHint('Copied.');
+  }
+
   render() {
     const settings = this.props.settings;
     return (
@@ -132,11 +149,21 @@ class Editor extends PureComponent {
             {
               this.props.isAuth
                 ?
-                <a href=""
-                  className={styles.SaveButton}
-                  onClick={this.toggleSaveModal}>
-                  Save
-              </a>
+                <div className={styles.ButtonContainer}>
+                  {
+                    this.props.editingItemId &&
+                    <a href=""
+                      className={styles.SaveButton}
+                      onClick={this.saveEdited}>
+                      Save
+                      </a>
+                  }
+                  <a href=""
+                    className={styles.SaveButton}
+                    onClick={this.toggleSaveModal}>
+                    Save {this.props.editingItemId && 'As'}
+                  </a>
+                </div>
                 :
                 <Link to='/login'
                   className={styles.SaveButton}>
@@ -153,7 +180,8 @@ class Editor extends PureComponent {
               <Code
                 previewClass={settings.className}
                 template={settings.template}
-                styles={this.state.styleValues} />
+                styles={this.state.styleValues}
+                onCopy={this.openCopyHint} />
             </Tabs>
           </div>
         </div >
@@ -172,6 +200,8 @@ const mapStateToProps = (state) => {
     isAuth: !!state.auth.userId,
     userId: state.auth.userId,
     token: state.auth.token,
+    editingItemId: state.editors.editingItemId,
+    editingItemTitle: state.editors.editingItemTitle,
   }
 }
 
@@ -179,6 +209,12 @@ const mapDispatchToProps = (dispatch) => {
   return {
     save: (title, editorName, controlValues, userId, token) => {
       dispatch(actions.save(title, editorName, controlValues, userId, token));
+    },
+    saveEditedItem: (id, title, editorName, controlValues, userId, token) => {
+      dispatch(actions.saveEditedItem(id, title, editorName, controlValues, userId, token));
+    },
+    openHint: (text) => {
+      dispatch(actions.openHint(text));
     }
   }
 }

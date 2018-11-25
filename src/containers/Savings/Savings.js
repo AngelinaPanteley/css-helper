@@ -95,6 +95,7 @@ class Savings extends Component {
       return item.id === id;
     })[0];
     localStorage.setItem(saving.editorName, JSON.stringify(saving.controlValues));
+    this.props.turnEditingModeOn(id, saving.title);
     this.props.history.push(`/${saving.editorName}`);
   }
 
@@ -211,6 +212,9 @@ const mapDispatchToProps = (dispatch) => {
     delete: (id, token) => {
       dispatch(actions.deleteSaving(id, token));
     },
+    turnEditingModeOn: (id, title) => {
+      dispatch(actions.turnEditingModeOn(id, title));
+    }
   }
 }
 

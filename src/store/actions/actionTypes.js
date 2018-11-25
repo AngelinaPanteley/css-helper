@@ -1,5 +1,6 @@
 export const EDITORS_INIT = 'EDITORS_INIT';
-export const EDITORS_INIT_FAILED = 'EDITORS_INIT_FAILED';
+export const TURN_EDITING_MODE_ON = 'TURN_EDITING_MODE_ON';
+export const TURN_EDITING_MODE_OFF = 'TURN_EDITING_MODE_OFF';
 
 export const AUTH_START = 'AUTH_START';
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
@@ -7,12 +8,9 @@ export const AUTH_FAIL = 'AUTH_FAIL';
 export const AUTH_LOGOUT = 'AUTH_LOGOUT';
 export const AUTH_INIT = 'AUTH_INIT';
 
-export const SAVE_START = 'SAVE_START';
-export const SAVE_SUCCESS = 'SAVE_SUCCESS';
-export const SAVE_FAIL = 'SAVE_FAIL';
 export const GET_SAVINGS_START = 'GET_SAVINGS_START';
 export const GET_SAVINGS_SUCCESS = 'GET_SAVINGS_SUCCESS';
 export const GET_SAVINGS_FAIL = 'GET_SAVINGS_FAIL';
-export const DELETE_START = 'DELETE_START';
-export const DELETE_SUCCESS = 'DELETE_SUCCESS';
-export const DELETE_FAIL = 'DELETE_FAIL';
+
+export const OPEN_HINT = 'OPEN_HINT';
+export const CLOSE_HINT = 'CLOSE_HINT';

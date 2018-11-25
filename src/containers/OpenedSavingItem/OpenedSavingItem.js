@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as actions from '../../store/actions/index';
 import styles from './OpenedSavingItem.scss';
 import { calcStyles } from '../../shared/utility';
 import Preview from '../../components/Preview/Preview';
@@ -21,6 +22,10 @@ class OpenedSavingItem extends Component {
     }
   }
 
+  openCopyHint = () => {
+    this.props.openHint('Copied.');
+  }
+
   render() {
     const wrapperStyles = [styles.Wrapper];
     if (this.props.isOpen) {
@@ -39,7 +44,9 @@ class OpenedSavingItem extends Component {
       <div className={wrapperStyles.join(' ')}>
         <div className={styles.Pattern}>
           <Pattern code={styleCode}
-            title='Styles' />
+            title='Styles'
+            onCopy={this.openCopyHint}
+          />
         </div>
         <div className={styles.Preview}>
           <Preview
@@ -58,4 +65,12 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(OpenedSavingItem);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    openHint: (text) => {
+      dispatch(actions.openHint(text));
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(OpenedSavingItem);

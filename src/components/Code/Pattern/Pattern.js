@@ -10,7 +10,8 @@ class Pattern extends PureComponent {
         <p className={styles.Title}>
           <span>{this.props.title}</span>
           <CopyToClipboard text={this.props.code}>
-            <button className={styles.Button}>
+            <button className={styles.Button}
+              onClick={this.props.onCopy}>
               <Icon icon="copy"></Icon>
             </button>
           </CopyToClipboard>

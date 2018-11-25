@@ -12,9 +12,13 @@ class Code extends PureComponent {
     return (
       <div className={styles.CodeWrapper}>
         <Pattern code={styleCode}
-          title='Styles' />
+          title='Styles'
+          onCopy={this.props.onCopy}
+        />
         <Pattern code={this.props.template.replace(/\n/, "\n\u00a0\u00a0")}
-          title='Markup' />
+          title='Markup'
+          onCopy={this.props.onCopy}
+        />
       </div>
     )
   }

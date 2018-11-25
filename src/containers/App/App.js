@@ -9,6 +9,7 @@ import Layout from '../../hoc/Layout/Layout';
 import Auth from '../Auth/Auth';
 import Editor from '../Editor/Editor';
 import Savings from '../Savings/Savings';
+import Hint from '../../components/UI/Hint/Hint';
 
 class App extends Component {
   componentDidMount() {
@@ -59,9 +60,18 @@ class App extends Component {
       <div className={styles.App}>
         {
           editorNames
-            ? <Layout>{routes}</Layout>
+            ?
+            <Layout>
+              {routes}
+            </Layout>
             : <Spinner />
         }
+        <Hint
+          isOpen={this.props.isHintOpen}
+          isError={this.props.isHintError}
+          entryText={this.props.hintText}
+          onClose={this.props.closeHint}
+        />
       </div>
     );
   }
@@ -72,6 +82,9 @@ const mapStateToProps = state => {
     editorNames: state.editors.names,
     editorSettings: state.editors.settings,
     isAuth: !!state.auth.userId,
+    isHintOpen: state.hint.isOpen,
+    isHintError: state.hint.isError,
+    hintText: state.hint.text,
   }
 }
 
@@ -79,6 +92,7 @@ const mapDispatchTopProps = dispatch => {
   return {
     initEditors: () => dispatch(actions.initEditors()),
     initUser: () => dispatch(actions.authInit()),
+    closeHint: () => dispatch(actions.closeHint()),
   }
 }
 

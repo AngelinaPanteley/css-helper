@@ -12,7 +12,6 @@ const getSavingsStart = (state, action) => {
 }
 
 const getSavingsSuccess = (state, action) => {
-  console.log(action.savings)
   return updateObject(state, {
     savings: action.savings,
     error: null,

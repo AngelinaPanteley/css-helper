@@ -41,6 +41,7 @@
   padding: 9px 30px 5px;
   border: 1px solid $color-white;
   background: rgba(56, 58, 71, 0.55);
+  margin-left: 10px;
   align-self: flex-end;
 
   &:hover,
@@ -50,4 +51,9 @@
     transition: $transition;
     color: $color-white;
   }
+}
+
+.ButtonContainer {
+  align-self: flex-end;
+  display: flex;
 }

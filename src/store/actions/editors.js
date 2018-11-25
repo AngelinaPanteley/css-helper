@@ -1,5 +1,6 @@
 import * as actionTypes from './actionTypes';
 import axios from '../../axios-orders';
+import { openHint } from './hint';
 
 export const setEditors = (editors) => {
   return {
@@ -8,11 +9,8 @@ export const setEditors = (editors) => {
   }
 }
 
-export const fetchEditorsFailed = (error) => {
-  return {
-    type: actionTypes.EDITORS_INIT_FAILED,
-    error,
-  }
+export const initEditorsFailed = (error) => {
+  return dispatch => dispatch(openHint(error.message, true));
 }
 
 export const initEditors = () => {
@@ -22,7 +20,23 @@ export const initEditors = () => {
         dispatch(setEditors(response.data));
       })
       .catch(error => {
-        dispatch(fetchEditorsFailed(error));
+        dispatch(initEditorsFailed(error));
       });
+  }
+}
+
+export const turnEditingModeOn = (id, title) => {
+  return {
+    type: actionTypes.TURN_EDITING_MODE_ON,
+    editingItemId: id,
+    editingItemTitle: title,
+  }
+}
+
+export const turnEditingModeOff = () => {
+  return {
+    type: actionTypes.TURN_EDITING_MODE_OFF,
+    editingItemId: null,
+    editingItemTitle: null,
   }
 }

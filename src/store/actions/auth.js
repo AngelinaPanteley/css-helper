@@ -1,5 +1,6 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
+import { openHint } from './hint';
 
 export const authStart = () => {
   return {
@@ -22,28 +23,6 @@ export const authFail = (error) => {
   };
 };
 
-export const authInit = () => {
-  return dispatch => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      const expirationDate = new Date(localStorage.getItem('expirationDate'));
-      if (expirationDate.getTime() > new Date().getTime()) {
-        dispatch(authSuccess({
-          idToken: token,
-          localId: localStorage.getItem('userId'),
-        }));
-        dispatch(checkAuthTimeout(expirationDate.getTime() / 1000 - new Date().getTime() / 1000));
-      } else {
-        console.log('logout1');
-        dispatch(logout());
-      }
-    } else {
-      console.log('logout2');
-      dispatch(logout());
-    }
-  };
-};
-
 export const logout = () => {
   localStorage.removeItem('token');
   localStorage.removeItem('userId');
@@ -54,10 +33,8 @@ export const logout = () => {
 };
 
 export const checkAuthTimeout = (expiresIn) => {
-  console.log(Math.round(expiresIn));
   return dispatch => {
     setTimeout(() => {
-      console.log('logout3');
       dispatch(logout());
     }, Math.round(expiresIn) * 1000);
   };
@@ -82,11 +59,42 @@ export const auth = (email, password, isAuth) => {
         localStorage.setItem('userId', response.data.localId);
         localStorage.setItem('expirationDate', expirationDate);
         dispatch(authSuccess(response.data));
-        dispatch(checkAuthTimeout(response.data.expiresIn))
+        dispatch(checkAuthTimeout(response.data.expiresIn));
+        dispatch(openHint('Successfully signed in.'));
       })
       .catch(error => {
         dispatch(authFail(error));
+        let message = '';
+        if (error.message === 'Request failed with status code 400') {
+          if (!isAuth) {
+            message = 'Incorrect email/password.';
+          } else {
+            message = 'Such account already exists.';
+          }
+        } else {
+          message = error.message;
+        }
+        dispatch(openHint(message, true));
       });
   };
 };
 
+export const authInit = () => {
+  return dispatch => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const expirationDate = new Date(localStorage.getItem('expirationDate'));
+      if (expirationDate.getTime() > new Date().getTime()) {
+        dispatch(authSuccess({
+          idToken: token,
+          localId: localStorage.getItem('userId'),
+        }));
+        dispatch(checkAuthTimeout(expirationDate.getTime() / 1000 - new Date().getTime() / 1000));
+      } else {
+        dispatch(logout());
+      }
+    } else {
+      dispatch(logout());
+    }
+  };
+};

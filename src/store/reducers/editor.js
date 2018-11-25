@@ -4,7 +4,8 @@ import { updateObject } from '../../shared/utility';
 const initialState = {
   names: null,
   settings: null,
-  error: null,
+  editingItemId: null,
+  editingItemTitle: null,
 };
 
 const editorsInit = (state, action) => {
@@ -12,22 +13,28 @@ const editorsInit = (state, action) => {
   return updateObject(state, {
     names,
     settings: action.editors,
-    error: null,
   });
 }
 
-const editorsInitFailed = (state, action) => {
+const turnEditingModeOn = (state, action) => {
   return updateObject(state, {
-    error: action.error,
-    names: null,
-    settings: null,
+    editingItemId: action.editingItemId,
+    editingItemTitle: action.editingItemTitle,
+  })
+}
+
+const turnEditingModeOff = (state, action) => {
+  return updateObject(state, {
+    editingItemId: action.editingItemId,
+    editingItemTitle: action.editingItemTitle,
   })
 }
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.EDITORS_INIT: return editorsInit(state, action);
-    case actionTypes.EDITORS_INIT_FAILED: return editorsInitFailed(state, action);
+    case actionTypes.TURN_EDITING_MODE_ON: return turnEditingModeOn(state, action);
+    case actionTypes.TURN_EDITING_MODE_OFF: return turnEditingModeOff(state, action);
     default: return state;
   }
 }

@@ -1,0 +1,32 @@
+@import '../../../variables';
+
+.Hint {
+  padding: 10px 50px;
+  position: fixed;
+  top: 79px;
+  left: 0px;
+  transition: $transition;
+  color: $color-white;
+  min-height: 36px;
+
+  &.Open {
+    transform: translateX(0);
+  }
+
+  &.Close {
+    transform: translateX(-100%);
+  }
+}
+
+.Cross {
+  position: absolute;
+  top: -2px;
+  right: -9px;
+  transform: rotate(45deg);
+  color: $color-white;
+  font-size: 15px;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}

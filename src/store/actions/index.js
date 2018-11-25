@@ -1,5 +1,7 @@
 export {
-  initEditors
+  initEditors,
+  turnEditingModeOn,
+  turnEditingModeOff,
 } from './editors';
 
 export {
@@ -10,6 +12,12 @@ export {
 
 export {
   save,
+  saveEditedItem,
   getSavings,
   deleteSaving,
 } from './saving';
+
+export {
+  openHint,
+  closeHint,
+} from './hint';

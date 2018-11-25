@@ -1,5 +1,6 @@
 import * as actionTypes from './actionTypes';
 import axios from '../../axios-orders';
+import { openHint } from './hint';
 
 export const getSavingsStart = () => {
   return {
@@ -21,23 +22,20 @@ export const getSavingsFail = (error) => {
   };
 };
 
-export const saveStart = () => {
-  return {
-    type: actionTypes.SAVE_START,
-  };
-};
-
 export const saveSuccess = (saveData) => {
-  return {
-    type: actionTypes.SAVE_SUCCESS,
-  };
+  return dispatch => dispatch(openHint('Successfully saved.'));
 };
 
 export const saveFail = (error) => {
-  return {
-    type: actionTypes.SAVE_FAIL,
-    error: error.message,
-  };
+  return dispatch => dispatch(openHint(error.message, true));
+};
+
+export const deleteSuccess = () => {
+  return dispatch => dispatch(openHint('Successfully deleted.'));
+};
+
+export const deleteFail = (error) => {
+  return dispatch => dispatch(openHint(error.message, true));
 };
 
 export const getSavings = (userId, token) => {
@@ -52,13 +50,13 @@ export const getSavings = (userId, token) => {
       })
       .catch(error => {
         dispatch(getSavingsFail(error));
+        dispatch(openHint(error.message, true));
       });
   };
 }
 
 export const save = (title, editorName, controlValues, userId, token) => {
   return dispatch => {
-    dispatch(saveStart());
     const saveData = {
       title,
       editorName,
@@ -79,33 +77,34 @@ export const save = (title, editorName, controlValues, userId, token) => {
   };
 };
 
-export const deleteStart = () => {
-  return {
-    type: actionTypes.DELETE_START,
-  };
-};
+export const saveEditedItem = (id, title, editorName, controlValues, userId, token) => {
+  return dispatch => {
+    const saveData = {
+      title,
+      editorName,
+      controlValues,
+      userId,
+      data: new Date().getTime(),
+    };
+    const queryParams = '?auth=' + token;
+    const url = `/savings/${id}.json`;
 
-export const deleteSuccess = () => {
-  return {
-    type: actionTypes.DELETE_SUCCESS,
-  };
-};
-
-export const deleteFail = (error) => {
-  return {
-    type: actionTypes.DELETE_FAIL,
-    error: error.message,
+    axios.put(url + queryParams, saveData)
+      .then(response => {
+        dispatch(saveSuccess(response.data));
+      })
+      .catch(error => {
+        dispatch(saveFail(error));
+      });
   };
 };
 
 export const deleteSaving = (id, token) => {
   return dispatch => {
-    dispatch(deleteStart());
     const url = `/savings/${id}.json?auth=${token}`;
 
     axios.delete(url)
       .then(response => {
-        console.log(response)
         dispatch(deleteSuccess());
       })
       .catch(error => {
