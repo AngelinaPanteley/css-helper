@@ -32,10 +32,7 @@ class SavingItem extends PureComponent {
             </button>
           </div>
         </div>
-        {
-          this.props.isOpen &&
-          <OpenedSavingItem item={item} />
-        }
+        <OpenedSavingItem item={item} isOpen={this.props.isOpen} />
       </Auxiliary>
     )
   }

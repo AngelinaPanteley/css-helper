@@ -8,7 +8,7 @@ import Pattern from '../../components/Code/Pattern/Pattern';
 class OpenedSavingItem extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props.item)
+
     this.settings = this.props.settings[this.props.item.editorName];
     this.previewClass = this.settings.className;
 
@@ -22,6 +22,13 @@ class OpenedSavingItem extends Component {
   }
 
   render() {
+    const wrapperStyles = [styles.Wrapper];
+    if (this.props.isOpen) {
+      wrapperStyles.push(styles.Open);
+    } else {
+      wrapperStyles.push(styles.Close);
+    }
+
     let styleString = '';
     for (let styleKey in this.state.styleValues) {
       styleString = `${styleString}\n  ${styleKey}: ${this.state.styleValues[styleKey]};`;
@@ -29,7 +36,7 @@ class OpenedSavingItem extends Component {
     const styleCode = `.${this.previewClass} {${styleString}\n}`;
 
     return (
-      <div className={styles.Wrapper}>
+      <div className={wrapperStyles.join(' ')}>
         <div className={styles.Pattern}>
           <Pattern code={styleCode}
             title='Styles' />

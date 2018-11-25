@@ -4,7 +4,20 @@
   @include flex-wrapper;
 
   border-bottom: 2px solid $color-border;
-  padding: 10px 30px;
+  padding: 0 30px;
+  height: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: $transition;
+
+  &.Open {
+    height: 220px;
+  }
+
+  &.Close {
+    height: 0;
+    border-bottom: 0;
+  }
 }
 
 .Preview {

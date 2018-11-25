@@ -126,12 +126,20 @@ class Savings extends Component {
     });
   }
 
-  openSavingItem = (id) => {
+  toggleSavingItem = (id) => {
     const { showBy, pageNumber } = this.state;
-    this.setState({
-      itemId: id,
-    });
-    this.props.history.push(`/savings/${showBy}/${pageNumber}/${id}`);
+
+    if (this.state.itemId === id) {
+      this.setState({
+        itemId: null,
+      });
+      this.props.history.push(`/savings/${showBy}/${pageNumber}`);
+    } else {
+      this.setState({
+        itemId: id,
+      });
+      this.props.history.push(`/savings/${showBy}/${pageNumber}/${id}`);
+    }
   }
 
   render() {
@@ -164,7 +172,7 @@ class Savings extends Component {
                     openItem={itemId}
                     onEdit={this.editSavingItem}
                     onDelete={this.openConfirmationModal}
-                    onClick={this.openSavingItem}
+                    onClick={this.toggleSavingItem}
                   />
                   <Breadcrumbs
                     pageAmount={Math.ceil(length / showBy)}

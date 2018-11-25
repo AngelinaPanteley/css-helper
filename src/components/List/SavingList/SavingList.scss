@@ -3,4 +3,5 @@
 .Wrapper {
   max-height: calc(100vh - #{$header-height} - 160px);
   overflow: auto;
+  border: 2px solid $color-border;
 }
