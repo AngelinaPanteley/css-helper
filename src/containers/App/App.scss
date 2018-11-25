@@ -1,6 +1,13 @@
 @import '../../variables';
 
 .App {
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
   background-color: $color-light-gray;
+
+  @include mobile {
+    height: auto;
+    min-height: 100vh;
+    overflow: auto;
+  }
 }

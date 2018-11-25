@@ -3,7 +3,7 @@
 .Editor {
   @include flex-wrapper(row,start, stretch);
 
-  min-height: calc(100vh - #{$header-height});
+  min-height: calc(100vh - 80px);
 
   @include mobile {
     flex-direction: column;

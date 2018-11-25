@@ -10,6 +10,7 @@
   margin: 20px 15px 10px;
   cursor: pointer;
   transition: $transition;
+  min-height: 30px;
 
   &:hover,
   &:focus,
@@ -20,6 +21,7 @@
 }
 
 .Generator {
-  @include flex-wrapper(column, flex-start, flex-end);
+  @include flex-wrapper(column, flex-start, flex-end, nowrap);
   padding-bottom: 20px;
+  max-height: calc(100vh - 128px);
 }
