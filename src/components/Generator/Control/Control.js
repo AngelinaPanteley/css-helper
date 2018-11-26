@@ -5,7 +5,7 @@ import 'rc-slider/assets/index.css';
 import 'rc-tooltip/assets/bootstrap.css';
 import './rc-slider.css';
 import * as controlTypes from '../controls';
-import { SliderPicker } from 'react-color';
+import { ChromePicker } from 'react-color';
 import Slider from 'rc-slider';
 
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
@@ -23,10 +23,30 @@ class Control extends PureComponent {
     PropTypes.number]).isRequired,
   }
 
+  rgbToString = (rgb) => {
+    if (rgb.a === 0) {
+      return 'transparent';
+    }
+    return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${rgb.a})`;
+  }
+
+  stringToRgb = (str) => {
+    if (str === 'transparent') {
+      return { r: 0, g: 0, b: 0, a: 0 };
+    }
+    const array = str.slice(5, -1).split(',');
+    const rgb = {
+      r: +array[0],
+      g: +array[1],
+      b: +array[2],
+      a: +array[3],
+    }
+    return rgb;
+  }
+
   render() {
     const control = this.props.control;
     let renderControl = null;
-
     switch (control.type) {
       case controlTypes.number:
         renderControl = <SliderWithTooltip
@@ -38,16 +58,16 @@ class Control extends PureComponent {
           onChange={this.props.handleChange} />;
         break;
       case controlTypes.color:
-        renderControl = <SliderPicker
-          color={this.props.value}
+        renderControl = <ChromePicker
+          color={this.stringToRgb(this.props.value)}
           onChangeComplete={(value) => {
-            this.props.handleChange(value.hex)
+            this.props.handleChange(this.rgbToString(value.rgb))
           }} />;
         break;
       default: break;
     }
     return (
-      <div className={styles.NumberControl} >
+      <div className={styles.Control} >
         <label className={styles.Label}>
           <span>{control.label}</span>
           <span>{this.props.value}{control.units}</span>

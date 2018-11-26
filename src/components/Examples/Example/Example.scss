@@ -17,6 +17,10 @@
     margin: 0 auto;
   }
 
+  span {
+    border-width: 40px !important;
+  }
+
   & > div {
     height: calc(100% - 20px) !important;
     max-height: unset;

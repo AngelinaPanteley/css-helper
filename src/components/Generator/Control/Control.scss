@@ -1,8 +1,12 @@
 @import '../../../variables';
 
-.NumberControl {
+.Control {
   width: 90%;
   margin: 10px auto;
+
+  &:last-child {
+    margin-bottom: 50px;
+  }
 }
 
 .Label {

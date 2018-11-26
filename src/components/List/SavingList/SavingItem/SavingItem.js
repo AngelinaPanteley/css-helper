@@ -19,7 +19,7 @@ class SavingItem extends PureComponent {
       <Auxiliary>
         <div className={styles.Item}
           onClick={() => this.props.onClick(item.id)}>
-          {item.title}
+          <p className={styles.Title}>{item.title}</p>
           <div className={styles.ButtonContainer}>
             <button
               onClick={(e) => {

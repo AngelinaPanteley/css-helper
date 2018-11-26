@@ -36,3 +36,10 @@
     transition: all .1s ease-in-out;
   }
 }
+
+.Title {
+  max-width: calc(100% - 120px);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
