@@ -12,7 +12,7 @@ class Dropdown extends PureComponent {
     onClose: PropTypes.func.isRequired,
     left: PropTypes.bool,
     right: PropTypes.bool,
-    links: PropTypes.array.isRequired,
+    links: PropTypes.array,
   }
 
   onLinkToClick = () => {
@@ -46,7 +46,7 @@ class Dropdown extends PureComponent {
         <div className={attachedClasses.join(' ')}>
           <ul className={styles.List}>
             {
-              this.props.links.map((link) => {
+              this.props.links && this.props.links.map((link) => {
                 return (
                   <li key={link.title} className={styles.List_Item}>
                     {

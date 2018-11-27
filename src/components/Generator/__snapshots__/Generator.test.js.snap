@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Generator renders control correctly 1`] = `
+<div>
+  <button
+    onClick={[Function]}
+  >
+    Clear All
+  </button>
+  <div>
+    <label>
+      <span />
+      <span>
+        20
+      </span>
+    </label>
+    <div
+      className="rc-slider"
+      onBlur={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMouseDown={[Function]}
+      onMouseUp={[Function]}
+      onTouchStart={[Function]}
+    >
+      <div
+        className="rc-slider-rail"
+        style={Object {}}
+      />
+      <div
+        className="rc-slider-track"
+        style={
+          Object {
+            "left": "0%",
+            "width": "20%",
+          }
+        }
+      />
+      <div
+        className="rc-slider-step"
+      />
+      <div
+        aria-disabled={false}
+        aria-valuemax={100}
+        aria-valuemin={0}
+        aria-valuenow={20}
+        className="rc-slider-handle"
+        onBlur={[Function]}
+        onKeyDown={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        role="slider"
+        style={
+          Object {
+            "left": "20%",
+          }
+        }
+        tabIndex={0}
+      />
+      <div
+        className="rc-slider-mark"
+      />
+    </div>
+  </div>
+</div>
+`;

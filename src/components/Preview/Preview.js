@@ -23,11 +23,14 @@ class Preview extends PureComponent {
 
   setStyles = () => {
     const previewClass = this.props.previewClass;
-    const element = ReactDOM.findDOMNode(this.refs.wrapper)
-      .getElementsByClassName(previewClass).item(previewClass);
+    const wrapper = ReactDOM.findDOMNode(this.refs.wrapper);
 
-    for (let styleKey in this.props.styles) {
-      element.style[styleKey] = this.props.styles[styleKey];
+    if (wrapper) {
+      const element = wrapper.getElementsByClassName(previewClass).item(previewClass);
+
+      for (let styleKey in this.props.styles) {
+        element.style[styleKey] = this.props.styles[styleKey];
+      }
     }
   }
 

@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>DeleteConfirmationModal renders correctly 1`] = `
+Array [
+  <div
+    className=" "
+    onClick={[Function]}
+  />,
+  <div
+    className=" "
+  >
+    <p>
+      Are you sure you want to delete this saving?
+    </p>
+    <div>
+      <button
+        onClick={[Function]}
+      >
+        Cancel
+      </button>
+      <button
+        onClick={[Function]}
+      >
+        Delete
+      </button>
+    </div>
+  </div>,
+]
+`;

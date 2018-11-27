@@ -18,7 +18,7 @@ class Generator extends PureComponent {
       const control = this.props.controls[cont];
       controls.push(<Control
         control={control}
-        key={control.label}
+        key={cont}
         value={this.props.controlValues[cont]}
         handleChange={(value) => this.props.handleChange(cont, value)} />);
     }

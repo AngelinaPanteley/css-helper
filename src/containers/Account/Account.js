@@ -12,7 +12,7 @@ import * as actions from '../../store/actions/index';
 
 class Account extends Component {
   static propTypes = {
-    editorNames: PropTypes.arrayOf(PropTypes.string).isRequired,
+    editorNames: PropTypes.arrayOf(PropTypes.string),
     isAuth: PropTypes.bool.isRequired,
     onLogout: PropTypes.func.isRequired,
   }

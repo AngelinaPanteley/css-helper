@@ -8,7 +8,7 @@ import Dropdown from '../../components/UI/Dropdown/Dropdown';
 
 class Menu extends PureComponent {
   static propTypes = {
-    editorNames: PropTypes.arrayOf(PropTypes.string).isRequired,
+    editorNames: PropTypes.arrayOf(PropTypes.string),
     turnEditingModeOff: PropTypes.func.isRequired,
   }
 
@@ -30,12 +30,15 @@ class Menu extends PureComponent {
   }
 
   render() {
-    const links = this.props.editorNames.map((elem) => {
-      return {
-        title: 'Create ' + elem[0].toUpperCase() + elem.slice(1),
-        route: '/' + elem,
-      }
-    });
+    let links;
+    if (this.props.editorNames) {
+      links = this.props.editorNames.map((elem) => {
+        return {
+          title: 'Create ' + elem[0].toUpperCase() + elem.slice(1),
+          route: '/' + elem,
+        }
+      });
+    }
 
     return (
       <div className={styles.Menu}>

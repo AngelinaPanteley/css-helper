@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>SavingList renders correctly 1`] = `
+<div>
+  <div
+    onClick={[Function]}
+  >
+    title
+    <div>
+      <button
+        onClick={[Function]}
+      >
+        <i
+          className="undefined undefined"
+        />
+      </button>
+      <button
+        onClick={[Function]}
+      >
+        <i
+          className="undefined undefined"
+        />
+      </button>
+    </div>
+  </div>
+  <div
+    className=" "
+  >
+    <div>
+      <div>
+        <p>
+          <span>
+            Styles
+          </span>
+          <button
+            onClick={[Function]}
+          >
+            <i
+              className="undefined undefined"
+            />
+          </button>
+        </p>
+        <pre>
+          <code>
+            .undefined {
+}
+          </code>
+        </pre>
+      </div>
+    </div>
+    <div>
+      <div
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;
