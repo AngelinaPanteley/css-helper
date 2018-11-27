@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Breadcrumbs renders correctly 1`] = `
+<div>
+  <button
+    disabled={false}
+    onClick={[Function]}
+  >
+    &lt;   Prev
+  </button>
+  <select
+    onChange={[Function]}
+  />
+  <button
+    disabled={false}
+    onClick={[Function]}
+  >
+    Next   &gt;
+  </button>
+</div>
+`;

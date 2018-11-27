@@ -9,7 +9,7 @@ import Pattern from '../../components/Code/Pattern/Pattern';
 
 class OpenedSavingItem extends PureComponent {
   static propTypes = {
-    settings: PropTypes.object.isRequired,
+    settings: PropTypes.object,
     isOpen: PropTypes.bool.isRequired,
     item: PropTypes.object.isRequired,
     openHint: PropTypes.func.isRequired,
@@ -18,15 +18,21 @@ class OpenedSavingItem extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.settings = this.props.settings[this.props.item.editorName];
-    this.previewClass = this.settings.className;
+    if (this.props.settings) {
+      this.settings = this.props.settings[this.props.item.editorName];
+      this.previewClass = this.settings.className;
 
-    this.state = {
-      styleValues: calcStyles(
-        this.settings.style,
-        props.item.controlValues,
-        this.settings.controls
-      ),
+      this.state = {
+        styleValues: calcStyles(
+          this.settings.style,
+          props.item.controlValues,
+          this.settings.controls
+        ),
+      }
+    } else {
+      this.state = {
+        styleValues: {},
+      }
     }
   }
 
@@ -58,8 +64,8 @@ class OpenedSavingItem extends PureComponent {
         </div>
         <div className={styles.Preview}>
           <Preview
-            previewClass={this.settings.className}
-            template={this.settings.template}
+            previewClass={this.settings ? this.settings.className : ''}
+            template={this.settings ? this.settings.template : ''}
             styles={this.state.styleValues} />
         </div>
       </div>

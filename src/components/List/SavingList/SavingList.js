@@ -6,6 +6,7 @@ import SavingItem from './SavingItem/SavingItem';
 class SavingList extends PureComponent {
   static propTypes = {
     openItem: PropTypes.string,
+    items: PropTypes.arrayOf(PropTypes.object).isRequired,
     onClick: PropTypes.func.isRequired,
     onEdit: PropTypes.func.isRequired,
     onDelete: PropTypes.func.isRequired,

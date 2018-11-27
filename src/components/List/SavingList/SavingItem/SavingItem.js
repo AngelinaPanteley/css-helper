@@ -11,6 +11,7 @@ class SavingItem extends PureComponent {
     onClick: PropTypes.func.isRequired,
     onEdit: PropTypes.func.isRequired,
     onDelete: PropTypes.func.isRequired,
+    item: PropTypes.object.isRequired,
   }
 
   render() {

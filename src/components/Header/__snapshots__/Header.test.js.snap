@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Header renders control correctly 1`] = `
+<div>
+  <div>
+    <a
+      href=""
+      onClick={[Function]}
+    >
+      <i
+        className="undefined undefined"
+      />
+    </a>
+    <div
+      className="  "
+    >
+      <ul />
+    </div>
+  </div>
+  <a
+    href="/"
+    onClick={[Function]}
+  >
+    <img
+      alt="logo"
+      src="logo.png"
+    />
+  </a>
+  <div>
+    <span>
+      <a
+        href="/login"
+        onClick={[Function]}
+      >
+        Log In
+      </a>
+    </span>
+    <span>
+      <a
+        href="/auth"
+        onClick={[Function]}
+      >
+        Create Account
+      </a>
+    </span>
+  </div>
+  <div>
+    <a
+      href=""
+      onClick={[Function]}
+    >
+      <i
+        className="undefined undefined"
+      />
+    </a>
+    <div
+      className="  "
+    >
+      <ul>
+        <li>
+          <a
+            href="/login"
+            onClick={[Function]}
+          >
+            Log In
+          </a>
+        </li>
+        <li>
+          <a
+            href="/auth"
+            onClick={[Function]}
+          >
+            Create Account
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
