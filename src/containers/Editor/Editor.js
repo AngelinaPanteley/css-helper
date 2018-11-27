@@ -15,6 +15,9 @@ import SaveModal from '../../components/SaveModal/SaveModal';
 
 class Editor extends PureComponent {
   static propTypes = {
+    settings: PropTypes.shape({
+      controls: PropTypes.object.isRequired,
+    }).isRequired,
     isAuth: PropTypes.bool.isRequired,
     userId: PropTypes.string,
     token: PropTypes.string,

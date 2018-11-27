@@ -1,17 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`>>>Pattern renders pattern correctly 1`] = `
-<div
-  className={undefined}
->
-  <p
-    className={undefined}
-  >
+<div>
+  <p>
     <span>
       title
     </span>
     <button
-      className={undefined}
       onClick={[Function]}
     >
       <i
@@ -19,12 +14,8 @@ exports[`>>>Pattern renders pattern correctly 1`] = `
       />
     </button>
   </p>
-  <pre
-    className={undefined}
-  >
-    <code
-      className={undefined}
-    >
+  <pre>
+    <code>
       code
     </code>
   </pre>

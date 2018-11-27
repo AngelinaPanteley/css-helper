@@ -1,20 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`>>>Code renders code correctly 1`] = `
-<div
-  className={undefined}
->
-  <div
-    className={undefined}
-  >
-    <p
-      className={undefined}
-    >
+<div>
+  <div>
+    <p>
       <span>
         Styles
       </span>
       <button
-        className={undefined}
         onClick={[Function]}
       >
         <i
@@ -22,29 +15,20 @@ exports[`>>>Code renders code correctly 1`] = `
         />
       </button>
     </p>
-    <pre
-      className={undefined}
-    >
-      <code
-        className={undefined}
-      >
+    <pre>
+      <code>
         .previewClass {
-          border: 1px solid blue;
-        }
+  border: 1px solid blue;
+}
       </code>
     </pre>
   </div>
-  <div
-    className={undefined}
-  >
-    <p
-      className={undefined}
-    >
+  <div>
+    <p>
       <span>
         Markup
       </span>
       <button
-        className={undefined}
         onClick={[Function]}
       >
         <i
@@ -52,12 +36,8 @@ exports[`>>>Code renders code correctly 1`] = `
         />
       </button>
     </p>
-    <pre
-      className={undefined}
-    >
-      <code
-        className={undefined}
-      >
+    <pre>
+      <code>
         &lt;div class="previewClass"&gt;&lt;/div&gt;
       </code>
     </pre>

@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>SaveModal renders save modal correctly 1`] = `
+Array [
+  <div
+    className=" "
+    onClick={[Function]}
+  />,
+  <div
+    className=" "
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <label
+        htmlFor="title"
+      >
+        Enter title:
+      </label>
+      <input
+        id="title"
+        name="title"
+        onChange={[Function]}
+        type="text"
+      />
+      <div>
+        <button
+          onClick={[Function]}
+        >
+          Cancel
+        </button>
+        <input
+          disabled={true}
+          type="submit"
+          value="Save"
+        />
+      </div>
+    </form>
+  </div>,
+]
+`;

@@ -6,19 +6,22 @@ import * as actions from '../../store/actions/index';
 
 class Homepage extends PureComponent {
   static propTypes = {
-    editors: PropTypes.object.isRequired,
-    editorNames: PropTypes.arrayOf(PropTypes.string).isRequired,
+    editors: PropTypes.object,
+    editorNames: PropTypes.arrayOf(PropTypes.string),
     turnEditingModeOff: PropTypes.func.isRequired,
   }
 
   render() {
-    const slides = this.props.editorNames.map((name) => {
-      return {
-        imageUrl: this.props.editors[name].image,
-        route: '/' + name,
-        title: 'Create New ' + name[0].toUpperCase() + name.slice(1),
-      }
-    });
+    let slides;
+    if (this.props.editorNames) {
+      slides = this.props.editorNames.map((name) => {
+        return {
+          imageUrl: this.props.editors[name].image,
+          route: '/' + name,
+          title: 'Create New ' + name[0].toUpperCase() + name.slice(1),
+        }
+      });
+    }
 
     return (
       <Carousel slides={slides} onClick={this.props.turnEditingModeOff} />

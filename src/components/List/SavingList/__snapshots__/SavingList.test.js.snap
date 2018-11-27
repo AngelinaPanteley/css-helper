@@ -5,7 +5,9 @@ exports[`>>>SavingList renders correctly 1`] = `
   <div
     onClick={[Function]}
   >
-    title
+    <p>
+      title
+    </p>
     <div>
       <button
         onClick={[Function]}

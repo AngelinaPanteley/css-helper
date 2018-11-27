@@ -15,8 +15,8 @@ class Savings extends PureComponent {
   static propTypes = {
     savings: PropTypes.object,
     loading: PropTypes.bool.isRequired,
-    userId: PropTypes.string.isRequired,
-    token: PropTypes.string.isRequired,
+    userId: PropTypes.string,
+    token: PropTypes.string,
     getSavings: PropTypes.func.isRequired,
     delete: PropTypes.func.isRequired,
     turnEditingModeOn: PropTypes.func.isRequired,

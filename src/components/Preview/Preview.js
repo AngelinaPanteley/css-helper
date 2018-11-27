@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 class Preview extends PureComponent {
   static propTypes = {
-    template: PropTypes.string.isRequired,
-    previewClass: PropTypes.string.isRequired,
+    template: PropTypes.string,
+    previewClass: PropTypes.string,
     styles: PropTypes.object.isRequired,
   }
 

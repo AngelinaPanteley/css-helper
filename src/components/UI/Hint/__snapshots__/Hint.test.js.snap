@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Hint renders save hint correctly 1`] = `
+<div
+  className=" "
+  style={
+    Object {
+      "background": "#bf1039",
+    }
+  }
+>
+  <button
+    onClick={[Function]}
+  >
+    <i
+      className="undefined undefined"
+    />
+  </button>
+</div>
+`;

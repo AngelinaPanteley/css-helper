@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Menu renders itself correctly 1`] = `
+<div>
+  <a
+    href=""
+    onClick={[Function]}
+  >
+    <i
+      className="undefined undefined"
+    />
+  </a>
+  <div
+    className="  "
+  >
+    <ul />
+  </div>
+</div>
+`;

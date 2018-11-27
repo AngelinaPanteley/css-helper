@@ -5,7 +5,6 @@ exports[`>>>Examples renders examples correctly 1`] = `
   className=" "
 >
   <div
-    className={undefined}
     onClick={[Function]}
   >
     <div

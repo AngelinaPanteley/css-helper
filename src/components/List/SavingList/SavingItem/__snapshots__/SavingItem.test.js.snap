@@ -5,7 +5,9 @@ Array [
   <div
     onClick={[Function]}
   >
-    title
+    <p>
+      title
+    </p>
     <div>
       <button
         onClick={[Function]}
