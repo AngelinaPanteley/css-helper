@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Code renders code correctly 1`] = `
+<div
+  className={undefined}
+>
+  <div
+    className={undefined}
+  >
+    <p
+      className={undefined}
+    >
+      <span>
+        Styles
+      </span>
+      <button
+        className={undefined}
+        onClick={[Function]}
+      >
+        <i
+          className="undefined undefined"
+        />
+      </button>
+    </p>
+    <pre
+      className={undefined}
+    >
+      <code
+        className={undefined}
+      >
+        .previewClass {
+          border: 1px solid blue;
+        }
+      </code>
+    </pre>
+  </div>
+  <div
+    className={undefined}
+  >
+    <p
+      className={undefined}
+    >
+      <span>
+        Markup
+      </span>
+      <button
+        className={undefined}
+        onClick={[Function]}
+      >
+        <i
+          className="undefined undefined"
+        />
+      </button>
+    </p>
+    <pre
+      className={undefined}
+    >
+      <code
+        className={undefined}
+      >
+        &lt;div class="previewClass"&gt;&lt;/div&gt;
+      </code>
+    </pre>
+  </div>
+</div>
+`;

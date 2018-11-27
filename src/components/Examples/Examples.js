@@ -7,6 +7,7 @@ import { calcStyles } from '../../shared/utility';
 class Examples extends PureComponent {
   static propsTypes = {
     styles: PropTypes.objectOf(PropTypes.string).isRequired,
+    examples: PropTypes.object.isRequired,
     initialControlValues: PropTypes.object.isRequired,
     controls: PropTypes.object.isRequired,
     isOpen: PropTypes.bool.isRequired,

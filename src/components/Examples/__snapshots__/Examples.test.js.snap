@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Examples renders examples correctly 1`] = `
+<div
+  className=" "
+>
+  <div
+    className={undefined}
+    onClick={[Function]}
+  >
+    <div
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<div class=\\"previewClass\\"></div>",
+        }
+      }
+    />
+    <p>
+      example
+    </p>
+  </div>
+</div>
+`;

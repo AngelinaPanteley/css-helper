@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`>>>Pattern renders pattern correctly 1`] = `
+<div
+  className={undefined}
+>
+  <p
+    className={undefined}
+  >
+    <span>
+      title
+    </span>
+    <button
+      className={undefined}
+      onClick={[Function]}
+    >
+      <i
+        className="undefined undefined"
+      />
+    </button>
+  </p>
+  <pre
+    className={undefined}
+  >
+    <code
+      className={undefined}
+    >
+      code
+    </code>
+  </pre>
+</div>
+`;
