@@ -1,5 +1,7 @@
 @import '../../variables';
 
+$slow-transition: all .5s ease-in-out;
+
 .Form {
   width: 50%;
   padding-top: 10%;
@@ -23,7 +25,7 @@
       &:after {
         content: "";
         background: $color-light-pink;
-        transition: all .5s ease-in-out;
+        transition: $slow-transition;
         position: absolute;
         bottom: -53px;
         left: 0;
@@ -35,7 +37,7 @@
     input:focus + label {
       &:after {
         width: 100%;
-        transition: all .5s ease-in-out;
+        transition: $slow-transition;
       }
     }
 

@@ -84,6 +84,7 @@ class Editor extends PureComponent {
 
   toggleExamples = (e) => {
     e.preventDefault();
+
     this.setState({
       isExamplesOpen: !this.state.isExamplesOpen,
     })
@@ -98,6 +99,7 @@ class Editor extends PureComponent {
         ...example,
       }
     });
+
     this.changeStyles();
   }
 
@@ -117,6 +119,7 @@ class Editor extends PureComponent {
   saveEdited = (e) => {
     e.preventDefault();
     const { userId, token } = this.props;
+
     this.props.saveEditedItem(
       this.props.editingItemId,
       this.props.editingItemTitle,
@@ -140,6 +143,7 @@ class Editor extends PureComponent {
 
   render() {
     const settings = this.props.settings;
+
     return (
       <Auxiliary>
         <div className={styles.Editor}>

@@ -7,6 +7,7 @@ import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16.1';
 import Modal from './Modal.js';
 import Backdrop from '../../components/UI/Backdrop/Backdrop.js';
+
 configure({ adapter: new Adapter() });
 
 describe('>>>Tabs', () => {

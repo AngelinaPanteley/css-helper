@@ -2,8 +2,7 @@
 
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { expect as chaiExpect } from 'chai';
-import { shallow, configure } from 'enzyme';
+import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16.1';
 
 import Preview from './Preview.js';

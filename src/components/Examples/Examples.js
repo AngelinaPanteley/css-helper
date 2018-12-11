@@ -28,6 +28,7 @@ class Examples extends PureComponent {
     this.setState({
       selectedExample: exampleName,
     });
+
     this.props.selectExample(exampleName);
   }
 

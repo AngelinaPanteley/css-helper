@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
-
 import styles from './Account.scss';
-
 import Icon from '../../components/UI/Icon/Icon';
 import Dropdown from '../../components/UI/Dropdown/Dropdown';
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
@@ -48,9 +46,11 @@ class Account extends Component {
 
     if (this.props.isAuth) {
       let showBy = localStorage.getItem('showBy');
+
       if (!showBy) {
         showBy = 5;
       }
+
       links = [
         {
           title: 'My Savings',

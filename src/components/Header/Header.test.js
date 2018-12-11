@@ -45,9 +45,11 @@ describe('>>>Header', () => {
   it('renders Menu', () => {
     chaiExpect(wrapper.find(Menu)).to.have.lengthOf(1);
   });
+
   it('renders Logo', () => {
     chaiExpect(wrapper.find(Logo)).to.have.lengthOf(1);
   });
+
   it('renders Account', () => {
     chaiExpect(wrapper.find(Account)).to.have.lengthOf(1);
   });

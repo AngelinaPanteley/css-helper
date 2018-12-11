@@ -4,7 +4,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16.1';
-import { MemoryRouter, Link } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';

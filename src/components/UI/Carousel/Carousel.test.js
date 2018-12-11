@@ -24,7 +24,6 @@ describe('>>>Carousel', () => {
   }
 
   const carouselComponent = <MemoryRouter><Carousel {...props} /></MemoryRouter>;
-
   const component = renderer.create(carouselComponent);
 
   it('renders itself correctly', () => {
@@ -46,5 +45,4 @@ describe('>>>Carousel', () => {
       <img src={props.slides[0].imageUrl} alt='Editor Background' />
     )).to.equal(true);
   });
-
 })

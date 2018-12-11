@@ -7,6 +7,7 @@ import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16.1';
 import LinkTo from './LinkTo.js';
 import { MemoryRouter, Link } from "react-router-dom";
+
 configure({ adapter: new Adapter() });
 
 describe('>>>LinkTo', () => {
@@ -19,7 +20,6 @@ describe('>>>LinkTo', () => {
   }
 
   const linkComponent = <MemoryRouter><LinkTo {...props} /></MemoryRouter>;
-
   const component = renderer.create(linkComponent);
 
   it('renders itself correctly', () => {

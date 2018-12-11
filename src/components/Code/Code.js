@@ -13,10 +13,14 @@ class Code extends PureComponent {
 
   render() {
     let styleString = '';
-    for (let styleKey in this.props.styles) {
-      styleString = `${styleString}\n  ${styleKey}: ${this.props.styles[styleKey]};`;
+    const propStyles = this.props.styles;
+
+    for (let styleKey in propStyles) {
+      styleString = `${styleString}\n  ${styleKey}: ${propStyles[styleKey]};`;
     }
+
     const styleCode = `.${this.props.previewClass} {${styleString}\n}`;
+
     return (
       <div className={styles.CodeWrapper}>
         <Pattern code={styleCode}

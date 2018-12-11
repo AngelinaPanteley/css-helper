@@ -10,6 +10,7 @@ class Breadcrumbs extends PureComponent {
   render() {
     const { pageNumber, pageAmount } = this.props;
     const optionArray = [];
+
     for (let i = 0; i < pageAmount; ++i) {
       optionArray.push(<option key={i + 1} value={i + 1}>{i + 1}</option>);
     }

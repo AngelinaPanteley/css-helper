@@ -13,6 +13,7 @@ class Homepage extends PureComponent {
 
   render() {
     let slides;
+
     if (this.props.editorNames) {
       slides = this.props.editorNames.map((name) => {
         return {

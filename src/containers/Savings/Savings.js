@@ -49,6 +49,7 @@ class Savings extends PureComponent {
       this.props.savings !== prevProps.savings) {
       const savings = [];
       const keys = Object.keys(this.props.savings);
+
       keys.forEach((key) => {
         savings.push({
           ...this.props.savings[key],
@@ -74,10 +75,12 @@ class Savings extends PureComponent {
 
   getParams = () => {
     const { showBy, pageNumber, itemId } = this.props.match.params;
+
     if (!+showBy || !+pageNumber) {
       this.props.history.push('/');
       return;
     }
+
     this.setState({
       showBy: +showBy,
       pageNumber: +pageNumber,
@@ -90,6 +93,7 @@ class Savings extends PureComponent {
       showBy: newValue,
       pageNumber: 1,
     })
+
     this.props.history.push(`/savings/${newValue}/1`);
     localStorage.setItem('showBy', newValue);
   }
@@ -98,6 +102,7 @@ class Savings extends PureComponent {
     this.setState({
       pageNumber: newValue,
     })
+
     this.props.history.push(`/savings/${this.state.showBy}/${newValue}`);
   }
 
@@ -105,6 +110,7 @@ class Savings extends PureComponent {
     const saving = this.state.savings.filter((item) => {
       return item.id === id;
     })[0];
+
     localStorage.setItem(saving.editorName, JSON.stringify(saving.controlValues));
     this.props.turnEditingModeOn(id, saving.title);
     this.props.history.push(`/${saving.editorName}`);
@@ -124,10 +130,13 @@ class Savings extends PureComponent {
     const index = savings.findIndex((item) => {
       return item.id === id;
     });
+
     const newArray = [...savings.slice(0, index), ...savings.slice(index + 1)];
+
     this.setState({
       savings: newArray,
     })
+
     this.props.delete(id, this.props.token);
     this.confirmationModalToggle();
   }
@@ -157,9 +166,11 @@ class Savings extends PureComponent {
   render() {
     const { savings, showBy, pageNumber, itemId } = this.state;
     let length = 0;
+
     if (savings) {
       length = savings.length;
     }
+
     const startIndex = showBy * (pageNumber - 1);
     const lastIndex = startIndex + showBy;
 

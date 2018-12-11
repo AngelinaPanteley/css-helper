@@ -1,20 +1,21 @@
 @import '../../../../variables';
 
+$fluent-transition: all .1s ease-in-out;
+
 .Item {
-  display: flex;
+  @include flex-wrapper;
+  
   height: 50px;
-  align-items: center;
   color: $color-white;
   padding: 0 30px;
-  justify-content: space-between;
   border-bottom: 2px solid $color-border;
   cursor: pointer;
   font-size: 20px;
-  transition: all .1s ease-in-out;
+  transition: $fluent-transition;
 
   &:hover {
     background-color: $color-pink;
-    transition: all .1s ease-in-out;
+    transition: $fluent-transition;
   }
 
   &:last-child {
@@ -23,17 +24,17 @@
 }
 
 .Button {
-  border: none;
+  border: 0;
   background: none;
   outline: none;
-  color: white;
+  color: $color-white;
   font-size: 22px;
   cursor: pointer;
-  transition: all .1s ease-in-out;
+  transition: $fluent-transition;
 
   &:hover {
     text-shadow: 0 0 1px $color-white;
-    transition: all .1s ease-in-out;
+    transition: $fluent-transition;
   }
 }
 

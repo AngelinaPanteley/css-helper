@@ -19,7 +19,6 @@ describe('>>>Icon', () => {
   };
 
   const iconComponent = <Icon {...props} />;
-
   const component = renderer.create(iconComponent);
 
   it('renders itself correctly', () => {

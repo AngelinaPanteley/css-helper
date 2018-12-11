@@ -16,6 +16,7 @@ class SavingItem extends PureComponent {
 
   render() {
     const item = this.props.item;
+
     return (
       <Auxiliary>
         <div className={styles.Item}

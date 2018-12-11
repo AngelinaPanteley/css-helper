@@ -42,6 +42,7 @@ class OpenedSavingItem extends PureComponent {
 
   render() {
     const wrapperStyles = [styles.Wrapper];
+
     if (this.props.isOpen) {
       wrapperStyles.push(styles.Open);
     } else {
@@ -49,9 +50,11 @@ class OpenedSavingItem extends PureComponent {
     }
 
     let styleString = '';
+
     for (let styleKey in this.state.styleValues) {
       styleString = `${styleString}\n  ${styleKey}: ${this.state.styleValues[styleKey]};`;
     }
+
     const styleCode = `.${this.previewClass} {${styleString}\n}`;
 
     return (

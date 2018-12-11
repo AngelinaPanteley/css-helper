@@ -17,6 +17,7 @@ class Dropdown extends PureComponent {
 
   onLinkToClick = () => {
     this.props.onClose();
+
     if (this.props.onClick) {
       this.props.onClick();
     }
@@ -27,19 +28,22 @@ class Dropdown extends PureComponent {
     this.onLinkToClick();
     link.click();
   }
+
   render() {
     const attachedClasses = [styles.Dropdown];
+
     if (this.props.isOpen) {
       attachedClasses.push(styles.Open);
     } else {
       attachedClasses.push(styles.Close);
     }
+
     if (this.props.left) {
       attachedClasses.push(styles.Left);
-    }
-    if (this.props.right) {
+    } else if (this.props.right) {
       attachedClasses.push(styles.Right);
     }
+
     return (
       <Auxiliary>
         <Backdrop show={this.props.isOpen} clicked={this.props.onClose} />

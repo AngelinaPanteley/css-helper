@@ -34,6 +34,7 @@ class Control extends PureComponent {
     if (str === 'transparent') {
       return { r: 0, g: 0, b: 0, a: 0 };
     }
+
     const array = str.slice(5, -1).split(',');
     const rgb = {
       r: +array[0],
@@ -41,12 +42,14 @@ class Control extends PureComponent {
       b: +array[2],
       a: +array[3],
     }
+
     return rgb;
   }
 
   render() {
     const control = this.props.control;
     let renderControl = null;
+
     switch (control.type) {
       case controlTypes.number:
         renderControl = <SliderWithTooltip
@@ -66,6 +69,7 @@ class Control extends PureComponent {
         break;
       default: break;
     }
+
     return (
       <div className={styles.Control} >
         <label className={styles.Label}>

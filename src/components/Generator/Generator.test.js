@@ -49,7 +49,6 @@ describe('>>>Generator', () => {
   let wrapper;
   const shallowComponent = <Generator {...props} />;
 
-
   beforeEach(() => {
     wrapper = shallow(shallowComponent);
   });

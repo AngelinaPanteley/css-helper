@@ -16,7 +16,7 @@
   }
 
   label {
-    color: white;
+    color: $color-white;
     margin-bottom: 20px;
     font-size: 20px;
   }
@@ -40,7 +40,7 @@
     text-transform: uppercase;
     padding: 9px 30px 10px;
     border: 1px solid $color-white;
-    background: rgba(56, 58, 71, 0.55);
+    background: $color-btn-bg;
     align-self: flex-end;
     cursor: pointer;
     outline: none;
@@ -50,14 +50,14 @@
     &:hover,
     &:focus,
     &:active {
-      background: rgba(255, 255, 255, 0.1);
+      background: $color-btn-hover-bg;
       transition: $transition;
       color: $color-white;
     }
   }
 
   input {
-    background: rgba(255, 0, 81, 0.4);
+    background: $color-input-bg;
 
     &[disabled] {
       cursor: not-allowed;
@@ -67,7 +67,7 @@
     &:focus[disabled=false],
     &:active[disabled=false] {
       &:not([disabled]) {
-        background: rgba(255, 0, 81, 0.6);
+        background: $color-input-focus-bg;
         transition: $transition;
         color: $color-white;
       }

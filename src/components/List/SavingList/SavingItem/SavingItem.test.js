@@ -55,6 +55,7 @@ describe('>>>SavingItem', () => {
   it('renders two icons', () => {
     chaiExpect(wrapper.find(Icon)).to.have.lengthOf(2);
   });
+
   it('renders opened saving item if isOpen=true', () => {
     chaiExpect(wrapper.find(OpenedSavingItem)).to.have.lengthOf(1);
   });

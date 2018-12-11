@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import styles from './Menu.scss';
 import * as actions from '../../store/actions/index';
 import Icon from '../../components/UI/Icon/Icon';
 import Dropdown from '../../components/UI/Dropdown/Dropdown';
@@ -31,6 +30,7 @@ class Menu extends PureComponent {
 
   render() {
     let links;
+
     if (this.props.editorNames) {
       links = this.props.editorNames.map((elem) => {
         return {
@@ -41,7 +41,7 @@ class Menu extends PureComponent {
     }
 
     return (
-      <div className={styles.Menu}>
+      <div>
         <a href="" onClick={this.onMenuClick}>
           <Icon icon='menu' />
         </a>

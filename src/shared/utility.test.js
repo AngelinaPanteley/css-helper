@@ -16,8 +16,10 @@ describe('>>>updateObject', () => {
       key2: {
         subkey: 2,
       },
-    }
-    const updated = updateObject(state, { key2: { subkey: 2 } })
+    };
+
+    const updated = updateObject(state, { key2: { subkey: 2 } });
+
     chaiExpect(updated.key2 == state.key2).to.equal(false);
   });
 });
@@ -26,11 +28,13 @@ describe('>>>calcStyles', () => {
   it('calculates styles correctly', () => {
     const styles = {
       border: '{borderWidth} solid {borderColor}',
-    }
+    };
+
     const controlValues = {
       borderWidth: 1,
       borderColor: '#fff',
-    }
+    };
+
     const controls = {
       borderWidth: {
         type: 'number',
@@ -39,11 +43,13 @@ describe('>>>calcStyles', () => {
       borderColor: {
         type: 'color',
       },
-    }
+    };
+
     const calculated = calcStyles(styles, controlValues, controls);
     const correct = {
       border: '1px solid #fff',
-    }
+    };
+
     chaiExpect(calculated.border == correct.border).to.equal(true);
   });
 });

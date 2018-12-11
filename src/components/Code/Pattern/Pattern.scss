@@ -1,19 +1,21 @@
+@import '../../../variables';
+
 .Pre {
   width: 100%;
   overflow: auto;
-  background: #0d0e10;
+  background: $color-code-bg;
   padding: 10px;
   margin: 20px auto;
 }
 
 .Code {
   display: block;
-  color: #b9b9bb;
+  color: $color-code;
   width: 100%;
 }
 
 .Title {
-  color: #fff;
+  color: $color-white;
   font-size: 20px;
 }
 
@@ -24,14 +26,14 @@
 .Button {
   background: transparent;
   border: none;
-  color: #fff;
+  color: $color-white;
   font-size: 20px;
   cursor: pointer;
   outline: none;
   float: right;
 
   &:hover {
-    text-shadow: 0 0 1px #fff;
+    text-shadow: 0 0 1px $color-white;
     transition: all .1s ease-in-out;
   }
 }

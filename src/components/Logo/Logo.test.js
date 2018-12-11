@@ -18,7 +18,6 @@ describe('>>>Logo', () => {
   //SNAPSHOTS
 
   const logoComponent = <MemoryRouter><Logo /></MemoryRouter>;
-
   const component = renderer.create(logoComponent);
 
   it('renders logo correctly', () => {

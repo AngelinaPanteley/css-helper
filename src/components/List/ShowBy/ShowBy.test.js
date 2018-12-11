@@ -5,7 +5,6 @@ import renderer from 'react-test-renderer';
 import { expect as chaiExpect } from 'chai';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16.1';
-
 import ShowBy from './ShowBy.js';
 
 configure({ adapter: new Adapter() });
@@ -21,7 +20,6 @@ describe('>>>ShowBy', () => {
   };
 
   const showByComponent = <ShowBy {...props} />;
-
   const component = renderer.create(showByComponent);
 
   it('renders correctly', () => {
@@ -40,6 +38,7 @@ describe('>>>ShowBy', () => {
   it('renders select', () => {
     chaiExpect(wrapper.find('select')).to.have.lengthOf(1);
   });
+
   it('renders two options', () => {
     chaiExpect(wrapper.find('option')).to.have.lengthOf(4);
   });

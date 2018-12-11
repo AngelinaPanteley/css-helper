@@ -2,8 +2,7 @@
 
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { expect as chaiExpect } from 'chai';
-import { shallow, configure } from 'enzyme';
+import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16.1';
 import { MemoryRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
@@ -38,16 +37,4 @@ describe('>>>Control', () => {
     let componentTree = component.toJSON();
     expect(componentTree).toMatchSnapshot();
   });
-
-  //SHALLOW RENDERING
-
-  let wrapper;
-
-  beforeEach(() => {
-    wrapper = shallow(controlComponent);
-  });
-
-  // it('renders slider', () => {
-  //   chaiExpect(wrapper.find('SliderWithTooltip')).to.have.lengthOf(1);
-  // });
 });

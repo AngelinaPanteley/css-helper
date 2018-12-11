@@ -7,20 +7,20 @@
   font-size: 30px;
   text-transform: uppercase;
   padding: 20px 40px 15px;
-  border: 1px solid #ffffff;
+  border: 1px solid $color-white;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  background: rgba(56, 58, 71, 0.55);
+  background: $color-btn-bg;
 
   &:hover,
   &:focus,
   &:active {
-    color: white;
-    text-shadow: 0 0 2px white;
-    box-shadow: 0 0 7px 2px white;
+    color: $color-white;
+    text-shadow: 0 0 2px $color-white;
+    box-shadow: 0 0 7px 2px $color-white;
     transition: $transition;
   }
 

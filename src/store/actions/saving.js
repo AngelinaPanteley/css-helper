@@ -41,6 +41,7 @@ export const deleteFail = (error) => {
 export const getSavings = (userId, token) => {
   return dispatch => {
     dispatch(getSavingsStart());
+
     const queryParams = '?auth=' + token + '&orderBy="userId"&equalTo="' + userId + '"';
     const url = '/savings.json';
 
@@ -64,6 +65,7 @@ export const save = (title, editorName, controlValues, userId, token) => {
       userId,
       data: new Date().getTime(),
     };
+
     const queryParams = '?auth=' + token;
     const url = '/savings.json';
 
@@ -86,6 +88,7 @@ export const saveEditedItem = (id, title, editorName, controlValues, userId, tok
       userId,
       data: new Date().getTime(),
     };
+
     const queryParams = '?auth=' + token;
     const url = `/savings/${id}.json`;
 

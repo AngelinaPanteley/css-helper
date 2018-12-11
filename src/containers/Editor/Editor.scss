@@ -65,14 +65,14 @@
   text-transform: uppercase;
   padding: 9px 30px 5px;
   border: 1px solid $color-white;
-  background: rgba(56, 58, 71, 0.55);
+  background: $color-btn-bg;
   margin-left: 10px;
   align-self: flex-end;
 
   &:hover,
   &:focus,
   &:active {
-    background: rgba(255, 255, 255, 0.1);
+    background: $color-btn-hover-bg;
     transition: $transition;
     color: $color-white;
   }

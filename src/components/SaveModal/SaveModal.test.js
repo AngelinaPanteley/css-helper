@@ -20,7 +20,6 @@ describe('>>>SaveModal', () => {
   };
 
   const modalComponent = <SaveModal {...props} />;
-
   const component = renderer.create(modalComponent);
 
   it('renders save modal correctly', () => {

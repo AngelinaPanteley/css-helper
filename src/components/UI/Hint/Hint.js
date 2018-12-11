@@ -12,6 +12,7 @@ class Hint extends PureComponent {
 
   render() {
     const hintStyles = [styles.Hint];
+
     if (this.props.isOpen) {
       hintStyles.push(styles.Open);
       this.timer = setTimeout(this.props.onClose, 2000);
@@ -19,6 +20,7 @@ class Hint extends PureComponent {
       hintStyles.push(styles.Close);
       clearTimeout(this.timer);
     }
+
     return (
       <div className={hintStyles.join(' ')}
         style={{ background: this.props.isError ? '#bf1039' : '#19b319' }}>

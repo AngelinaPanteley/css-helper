@@ -5,7 +5,6 @@ import renderer from 'react-test-renderer';
 import { expect as chaiExpect } from 'chai';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16.1';
-
 import Example from './Example.js';
 
 configure({ adapter: new Adapter() });

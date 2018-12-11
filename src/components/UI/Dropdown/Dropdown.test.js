@@ -7,6 +7,7 @@ import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16.1';
 import Dropdown from './Dropdown.js';
 import { MemoryRouter, Link } from "react-router-dom";
+
 configure({ adapter: new Adapter() });
 
 describe('>>>Dropdown', () => {
@@ -26,7 +27,6 @@ describe('>>>Dropdown', () => {
   }
 
   const dropdownComponent = <MemoryRouter><Dropdown {...props} /></MemoryRouter>;
-
   const component = renderer.create(dropdownComponent);
 
   it('renders itself correctly', () => {

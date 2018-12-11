@@ -7,6 +7,7 @@ import LinkTo from '../LintTo/LinkTo';
 
 const carousel = (props) => {
   let slides;
+
   if (props.slides) {
     slides = props.slides.map((slide) => {
       return (

@@ -12,11 +12,13 @@ class Modal extends PureComponent {
 
   render() {
     const attachedClasses = [styles.Modal];
+
     if (this.props.isOpen) {
       attachedClasses.push(styles.Open);
     } else {
       attachedClasses.push(styles.Close);
     }
+
     return (
       <Auxiliary>
         <Backdrop

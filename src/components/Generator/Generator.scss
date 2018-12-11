@@ -23,7 +23,7 @@
 .Generator {
   @include flex-wrapper(column, flex-start, flex-end, nowrap);
   padding-bottom: 20px;
-  max-height: calc(100vh - 128px);
+  max-height: calc(100vh - #{$top-section-height});
 
   @include mobile {
     max-height: unset;

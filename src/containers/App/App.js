@@ -35,9 +35,9 @@ class App extends Component {
     let editorRoutes = null;
 
     if (editorNames) {
-
       editorRoutes = this.props.editorNames.map((name) => {
         const settings = this.props.editorSettings[name];
+
         return (
           <Route path={`/${name}`} key={name} render={() => {
             return <Editor

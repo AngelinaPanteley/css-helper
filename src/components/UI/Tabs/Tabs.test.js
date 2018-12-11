@@ -7,6 +7,7 @@ import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16.1';
 import MyTabs from './Tabs.js';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+
 configure({ adapter: new Adapter() });
 
 describe('>>>Tabs', () => {
@@ -20,8 +21,7 @@ describe('>>>Tabs', () => {
   const tabsComponent = <MyTabs {...props}>
     <div>Panel1</div>
     <div>Panel2</div>
-  </MyTabs>
-    ;
+  </MyTabs>;
 
   const component = renderer.create(tabsComponent);
 

@@ -22,7 +22,6 @@ describe('>>>Hint', () => {
   };
 
   const hintComponent = <Hint {...props} />;
-
   const component = renderer.create(hintComponent);
 
   it('renders save hint correctly', () => {

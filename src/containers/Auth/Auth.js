@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
-
 import styles from './Auth.scss';
 import * as actions from '../../store/actions/index';
-
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 import Spinner from '../../components/UI/Spinner/Spinner';
 
